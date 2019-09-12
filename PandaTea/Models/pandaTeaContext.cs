@@ -21,14 +21,14 @@ namespace PandaTea.Models
         public virtual DbSet<TransactionTbl> TransactionTbl { get; set; }
         public virtual DbSet<UserTbl> UserTbl { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=den1.mssql7.gear.host;Database=pandateadb;User Id=pandateadb;Password=Ez35VwWmVY!_;");
-            }
-        }
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Server=den1.mssql7.gear.host;Database=pandateadb;User Id=pandateadb;Password=Ez35VwWmVY!_;");
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
