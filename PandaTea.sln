@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTea", "PandaTea\PandaTea.csproj", "{59B76E70-2FB3-48DB-8EEE-6D7FD38EE50D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaTea", "PandaTea\PandaTea.csproj", "{35ED12D1-E940-4BE6-9C59-DA0AAA14B08F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{59B76E70-2FB3-48DB-8EEE-6D7FD38EE50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59B76E70-2FB3-48DB-8EEE-6D7FD38EE50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59B76E70-2FB3-48DB-8EEE-6D7FD38EE50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59B76E70-2FB3-48DB-8EEE-6D7FD38EE50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35ED12D1-E940-4BE6-9C59-DA0AAA14B08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35ED12D1-E940-4BE6-9C59-DA0AAA14B08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35ED12D1-E940-4BE6-9C59-DA0AAA14B08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35ED12D1-E940-4BE6-9C59-DA0AAA14B08F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5378BBD3-4DF7-4FE7-BC11-71B8161E3127}
+		SolutionGuid = {81E81731-9B19-4555-8E73-EDC18D5FF04C}
 	EndGlobalSection
 EndGlobal

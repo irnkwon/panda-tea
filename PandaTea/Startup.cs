@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using PandaTea.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PandaTea.Models;
 
 namespace PandaTea
 {
@@ -39,6 +40,11 @@ namespace PandaTea
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            
+            //Add services for PandaTeaContext
+            services.AddDbContext<PandaTeaContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("PandaTeaConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

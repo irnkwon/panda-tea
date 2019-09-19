@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PandaTea.Models
 {
-    public partial class pandaTeaContext : DbContext
+    public partial class PandaTeaContext : DbContext
     {
-        public pandaTeaContext()
+        public PandaTeaContext()
         {
         }
 
-        public pandaTeaContext(DbContextOptions<pandaTeaContext> options)
+        public PandaTeaContext(DbContextOptions<PandaTeaContext> options)
             : base(options)
         {
         }
@@ -20,6 +20,15 @@ namespace PandaTea.Models
         public virtual DbSet<StoreTbl> StoreTbl { get; set; }
         public virtual DbSet<TransactionTbl> TransactionTbl { get; set; }
         public virtual DbSet<UserTbl> UserTbl { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=pandateadb;Persist Security Info=True;User ID=sa;Password=Conestoga1");
+//            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
