@@ -11,9 +11,9 @@ namespace PandaTea.Controllers
 {
     public class TransactionController : Controller
     {
-        private readonly pandaTeaContext _context;
+        private readonly PandaTeaContext _context;
 
-        public TransactionController(pandaTeaContext context)
+        public TransactionController(PandaTeaContext context)
         {
             _context = context;
         }
@@ -21,8 +21,7 @@ namespace PandaTea.Controllers
         // GET: Transaction
         public async Task<IActionResult> Index()
         {
-            var pandaTeaContext = _context.TransactionTbl.Include(t => t.Product).Include(t => t.Store).Include(t => t.User);
-            return View(await pandaTeaContext.ToListAsync());
+            return View(await _context.TransactionTbl.ToListAsync());
         }
 
         // GET: Transaction/Details/5
@@ -34,9 +33,6 @@ namespace PandaTea.Controllers
             }
 
             var transactionTbl = await _context.TransactionTbl
-                .Include(t => t.Product)
-                .Include(t => t.Store)
-                .Include(t => t.User)
                 .FirstOrDefaultAsync(m => m.TransactionId == id);
             if (transactionTbl == null)
             {
@@ -49,9 +45,6 @@ namespace PandaTea.Controllers
         // GET: Transaction/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName");
-            ViewData["StoreId"] = new SelectList(_context.StoreTbl, "StoreId", "StoreId");
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId");
             return View();
         }
 
@@ -68,9 +61,6 @@ namespace PandaTea.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName", transactionTbl.ProductId);
-            ViewData["StoreId"] = new SelectList(_context.StoreTbl, "StoreId", "StoreId", transactionTbl.StoreId);
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId", transactionTbl.UserId);
             return View(transactionTbl);
         }
 
@@ -87,9 +77,6 @@ namespace PandaTea.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName", transactionTbl.ProductId);
-            ViewData["StoreId"] = new SelectList(_context.StoreTbl, "StoreId", "StoreId", transactionTbl.StoreId);
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId", transactionTbl.UserId);
             return View(transactionTbl);
         }
 
@@ -125,9 +112,6 @@ namespace PandaTea.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName", transactionTbl.ProductId);
-            ViewData["StoreId"] = new SelectList(_context.StoreTbl, "StoreId", "StoreId", transactionTbl.StoreId);
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId", transactionTbl.UserId);
             return View(transactionTbl);
         }
 
@@ -140,9 +124,6 @@ namespace PandaTea.Controllers
             }
 
             var transactionTbl = await _context.TransactionTbl
-                .Include(t => t.Product)
-                .Include(t => t.Store)
-                .Include(t => t.User)
                 .FirstOrDefaultAsync(m => m.TransactionId == id);
             if (transactionTbl == null)
             {

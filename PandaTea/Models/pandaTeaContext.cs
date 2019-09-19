@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PandaTea.Models
 {
-    public partial class pandaTeaContext : DbContext
+    public partial class PandaTeaContext : DbContext
     {
-        public pandaTeaContext()
+        public PandaTeaContext()
         {
         }
 
-        public pandaTeaContext(DbContextOptions<pandaTeaContext> options)
+        public PandaTeaContext(DbContextOptions<PandaTeaContext> options)
             : base(options)
         {
         }
@@ -21,10 +21,17 @@ namespace PandaTea.Models
         public virtual DbSet<TransactionTbl> TransactionTbl { get; set; }
         public virtual DbSet<UserTbl> UserTbl { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=pandateadb;Persist Security Info=True;User ID=sa;Password=Conestoga1");
+//            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
-
             modelBuilder.Entity<ProductTbl>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -78,18 +85,6 @@ namespace PandaTea.Models
                 entity.Property(e => e.UserId)
                     .HasColumnName("userId")
                     .HasColumnType("numeric(18, 0)");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.ReviewTbl)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_reviewTbl_productTbl");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.ReviewTbl)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_reviewTbl_userTbl");
             });
 
             modelBuilder.Entity<StoreTbl>(entity =>
@@ -162,24 +157,6 @@ namespace PandaTea.Models
                 entity.Property(e => e.UserId)
                     .HasColumnName("userId")
                     .HasColumnType("numeric(18, 0)");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.TransactionTbl)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_transactionTbl_productTbl");
-
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.TransactionTbl)
-                    .HasForeignKey(d => d.StoreId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_transactionTbl_storeTbl");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.TransactionTbl)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_transactionTbl_userTbl");
             });
 
             modelBuilder.Entity<UserTbl>(entity =>

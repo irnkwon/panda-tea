@@ -11,9 +11,9 @@ namespace PandaTea.Controllers
 {
     public class ReviewController : Controller
     {
-        private readonly pandaTeaContext _context;
+        private readonly PandaTeaContext _context;
 
-        public ReviewController(pandaTeaContext context)
+        public ReviewController(PandaTeaContext context)
         {
             _context = context;
         }
@@ -21,8 +21,7 @@ namespace PandaTea.Controllers
         // GET: Review
         public async Task<IActionResult> Index()
         {
-            var pandaTeaContext = _context.ReviewTbl.Include(r => r.Product).Include(r => r.User);
-            return View(await pandaTeaContext.ToListAsync());
+            return View(await _context.ReviewTbl.ToListAsync());
         }
 
         // GET: Review/Details/5
@@ -34,8 +33,6 @@ namespace PandaTea.Controllers
             }
 
             var reviewTbl = await _context.ReviewTbl
-                .Include(r => r.Product)
-                .Include(r => r.User)
                 .FirstOrDefaultAsync(m => m.ReviewId == id);
             if (reviewTbl == null)
             {
@@ -48,8 +45,6 @@ namespace PandaTea.Controllers
         // GET: Review/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName");
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId");
             return View();
         }
 
@@ -66,8 +61,6 @@ namespace PandaTea.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName", reviewTbl.ProductId);
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId", reviewTbl.UserId);
             return View(reviewTbl);
         }
 
@@ -84,8 +77,6 @@ namespace PandaTea.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName", reviewTbl.ProductId);
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId", reviewTbl.UserId);
             return View(reviewTbl);
         }
 
@@ -121,8 +112,6 @@ namespace PandaTea.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName", reviewTbl.ProductId);
-            ViewData["UserId"] = new SelectList(_context.UserTbl, "UserId", "UserId", reviewTbl.UserId);
             return View(reviewTbl);
         }
 
@@ -135,8 +124,6 @@ namespace PandaTea.Controllers
             }
 
             var reviewTbl = await _context.ReviewTbl
-                .Include(r => r.Product)
-                .Include(r => r.User)
                 .FirstOrDefaultAsync(m => m.ReviewId == id);
             if (reviewTbl == null)
             {

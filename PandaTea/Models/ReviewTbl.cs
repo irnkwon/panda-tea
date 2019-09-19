@@ -11,8 +11,5 @@ namespace PandaTea.Models
         public decimal? Score { get; set; }
         public string Text { get; set; }
         public DateTime? DateReviewed { get; set; }
-
-        public virtual ProductTbl Product { get; set; }
-        public virtual UserTbl User { get; set; }
     }
 }

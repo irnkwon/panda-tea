@@ -11,9 +11,9 @@ namespace PandaTea.Controllers
 {
     public class UserController : Controller
     {
-        private readonly pandaTeaContext _context;
+        private readonly PandaTeaContext _context;
 
-        public UserController(pandaTeaContext context)
+        public UserController(PandaTeaContext context)
         {
             _context = context;
         }
