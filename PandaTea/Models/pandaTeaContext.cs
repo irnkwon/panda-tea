@@ -23,8 +23,6 @@ namespace PandaTea.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
-
             modelBuilder.Entity<ProductTbl>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -78,18 +76,6 @@ namespace PandaTea.Models
                 entity.Property(e => e.UserId)
                     .HasColumnName("userId")
                     .HasColumnType("numeric(18, 0)");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.ReviewTbl)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_reviewTbl_productTbl");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.ReviewTbl)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_reviewTbl_userTbl");
             });
 
             modelBuilder.Entity<StoreTbl>(entity =>
@@ -162,24 +148,6 @@ namespace PandaTea.Models
                 entity.Property(e => e.UserId)
                     .HasColumnName("userId")
                     .HasColumnType("numeric(18, 0)");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.TransactionTbl)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_transactionTbl_productTbl");
-
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.TransactionTbl)
-                    .HasForeignKey(d => d.StoreId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_transactionTbl_storeTbl");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.TransactionTbl)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_transactionTbl_userTbl");
             });
 
             modelBuilder.Entity<UserTbl>(entity =>

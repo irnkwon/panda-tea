@@ -12,9 +12,5 @@ namespace PandaTea.Models
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public DateTime? DatePurchased { get; set; }
-
-        public virtual ProductTbl Product { get; set; }
-        public virtual StoreTbl Store { get; set; }
-        public virtual UserTbl User { get; set; }
     }
 }
