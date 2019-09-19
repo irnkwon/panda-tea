@@ -1,11 +1,13 @@
 ﻿@model PandaTea.Models.ProductTbl
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Delete</h1>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>ProductTbl</h4>
     <hr />
@@ -29,8 +31,10 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProductId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>

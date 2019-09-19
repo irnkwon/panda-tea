@@ -9,22 +9,22 @@ using PandaTea.Models;
 
 namespace PandaTea.Controllers
 {
-    public class UsersController : Controller
+    public class StoreController : Controller
     {
         private readonly pandaTeaContext _context;
 
-        public UsersController(pandaTeaContext context)
+        public StoreController(pandaTeaContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: Store
         public async Task<IActionResult> Index()
         {
-            return View(await _context.UserTbl.ToListAsync());
+            return View(await _context.StoreTbl.ToListAsync());
         }
 
-        // GET: Users/Details/5
+        // GET: Store/Details/5
         public async Task<IActionResult> Details(decimal? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var userTbl = await _context.UserTbl
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (userTbl == null)
+            var storeTbl = await _context.StoreTbl
+                .FirstOrDefaultAsync(m => m.StoreId == id);
+            if (storeTbl == null)
             {
                 return NotFound();
             }
 
-            return View(userTbl);
+            return View(storeTbl);
         }
 
-        // GET: Users/Create
+        // GET: Store/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Store/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,DateRegistered")] UserTbl userTbl)
+        public async Task<IActionResult> Create([Bind("StoreId,StoreName,Address,Street,City,State,Country,PostalCode")] StoreTbl storeTbl)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(userTbl);
+                _context.Add(storeTbl);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(userTbl);
+            return View(storeTbl);
         }
 
-        // GET: Users/Edit/5
+        // GET: Store/Edit/5
         public async Task<IActionResult> Edit(decimal? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var userTbl = await _context.UserTbl.FindAsync(id);
-            if (userTbl == null)
+            var storeTbl = await _context.StoreTbl.FindAsync(id);
+            if (storeTbl == null)
             {
                 return NotFound();
             }
-            return View(userTbl);
+            return View(storeTbl);
         }
 
-        // POST: Users/Edit/5
+        // POST: Store/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("UserId,FirstName,LastName,PhoneNumber,Email,DateRegistered")] UserTbl userTbl)
+        public async Task<IActionResult> Edit(decimal id, [Bind("StoreId,StoreName,Address,Street,City,State,Country,PostalCode")] StoreTbl storeTbl)
         {
-            if (id != userTbl.UserId)
+            if (id != storeTbl.StoreId)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace PandaTea.Controllers
             {
                 try
                 {
-                    _context.Update(userTbl);
+                    _context.Update(storeTbl);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserTblExists(userTbl.UserId))
+                    if (!StoreTblExists(storeTbl.StoreId))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace PandaTea.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(userTbl);
+            return View(storeTbl);
         }
 
-        // GET: Users/Delete/5
+        // GET: Store/Delete/5
         public async Task<IActionResult> Delete(decimal? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var userTbl = await _context.UserTbl
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (userTbl == null)
+            var storeTbl = await _context.StoreTbl
+                .FirstOrDefaultAsync(m => m.StoreId == id);
+            if (storeTbl == null)
             {
                 return NotFound();
             }
 
-            return View(userTbl);
+            return View(storeTbl);
         }
 
-        // POST: Users/Delete/5
+        // POST: Store/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(decimal id)
         {
-            var userTbl = await _context.UserTbl.FindAsync(id);
-            _context.UserTbl.Remove(userTbl);
+            var storeTbl = await _context.StoreTbl.FindAsync(id);
+            _context.StoreTbl.Remove(storeTbl);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserTblExists(decimal id)
+        private bool StoreTblExists(decimal id)
         {
-            return _context.UserTbl.Any(e => e.UserId == id);
+            return _context.StoreTbl.Any(e => e.StoreId == id);
         }
     }
 }

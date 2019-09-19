@@ -9,23 +9,23 @@ using PandaTea.Models;
 
 namespace PandaTea.Controllers
 {
-    public class TransactionsController : Controller
+    public class TransactionController : Controller
     {
         private readonly pandaTeaContext _context;
 
-        public TransactionsController(pandaTeaContext context)
+        public TransactionController(pandaTeaContext context)
         {
             _context = context;
         }
 
-        // GET: Transactions
+        // GET: Transaction
         public async Task<IActionResult> Index()
         {
             var pandaTeaContext = _context.TransactionTbl.Include(t => t.Product).Include(t => t.Store).Include(t => t.User);
             return View(await pandaTeaContext.ToListAsync());
         }
 
-        // GET: Transactions/Details/5
+        // GET: Transaction/Details/5
         public async Task<IActionResult> Details(decimal? id)
         {
             if (id == null)
@@ -46,7 +46,7 @@ namespace PandaTea.Controllers
             return View(transactionTbl);
         }
 
-        // GET: Transactions/Create
+        // GET: Transaction/Create
         public IActionResult Create()
         {
             ViewData["ProductId"] = new SelectList(_context.ProductTbl, "ProductId", "ProductName");
@@ -55,7 +55,7 @@ namespace PandaTea.Controllers
             return View();
         }
 
-        // POST: Transactions/Create
+        // POST: Transaction/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -74,7 +74,7 @@ namespace PandaTea.Controllers
             return View(transactionTbl);
         }
 
-        // GET: Transactions/Edit/5
+        // GET: Transaction/Edit/5
         public async Task<IActionResult> Edit(decimal? id)
         {
             if (id == null)
@@ -93,7 +93,7 @@ namespace PandaTea.Controllers
             return View(transactionTbl);
         }
 
-        // POST: Transactions/Edit/5
+        // POST: Transaction/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -131,7 +131,7 @@ namespace PandaTea.Controllers
             return View(transactionTbl);
         }
 
-        // GET: Transactions/Delete/5
+        // GET: Transaction/Delete/5
         public async Task<IActionResult> Delete(decimal? id)
         {
             if (id == null)
@@ -152,7 +152,7 @@ namespace PandaTea.Controllers
             return View(transactionTbl);
         }
 
-        // POST: Transactions/Delete/5
+        // POST: Transaction/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(decimal id)
