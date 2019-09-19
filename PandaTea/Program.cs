@@ -20,7 +20,6 @@ namespace PandaTea
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
             .UseIISIntegration()
-            //.UseStartup()
             .Build();
 
             host.Run();
