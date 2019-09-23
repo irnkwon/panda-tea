@@ -38,13 +38,11 @@ namespace PandaTea
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-            
-            //Add services for PandaTeaContext
             services.AddDbContext<PandaTeaContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("PandaTeaConnection")));
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
