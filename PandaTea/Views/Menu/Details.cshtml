@@ -1,4 +1,4 @@
-﻿@model PandaTea.Models.ProductTbl
+﻿@model PandaTea.Models.MenuTbl
 
 @{
     ViewData["Title"] = "Details";
@@ -8,14 +8,14 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ProductTbl</h4>
+    <h4>MenuTbl</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayNameFor(model => model.ProductId)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ProductName)
+            @Html.DisplayFor(model => model.ProductId)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Size)
@@ -29,9 +29,15 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.MenuId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
