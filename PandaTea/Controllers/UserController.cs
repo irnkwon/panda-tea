@@ -53,7 +53,7 @@ namespace PandaTea.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,DateRegistered")] UserTbl userTbl)
+        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,DateRegistered,Password")] UserTbl userTbl)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PandaTea.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("UserId,FirstName,LastName,PhoneNumber,Email,DateRegistered")] UserTbl userTbl)
+        public async Task<IActionResult> Edit(decimal id, [Bind("UserId,FirstName,LastName,PhoneNumber,Email,DateRegistered,Password")] UserTbl userTbl)
         {
             if (id != userTbl.UserId)
             {

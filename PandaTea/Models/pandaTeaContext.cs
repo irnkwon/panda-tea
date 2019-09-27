@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using PandaTea.Models;
 
 namespace PandaTea.Models
 {
@@ -21,17 +22,34 @@ namespace PandaTea.Models
         public virtual DbSet<TransactionTbl> TransactionTbl { get; set; }
         public virtual DbSet<UserTbl> UserTbl { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=pandateadb;Persist Security Info=True;User ID=sa;Password=Conestoga1");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<MenuTbl>(entity =>
+            {
+                entity.HasKey(e => e.MenuId);
+
+                entity.ToTable("menuTbl");
+
+                entity.Property(e => e.MenuId)
+                    .HasColumnName("menuId")
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Calories).HasColumnName("calories");
+
+                entity.Property(e => e.Price)
+                    .HasColumnName("price")
+                    .HasColumnType("decimal(6, 2)");
+
+                entity.Property(e => e.ProductId)
+                    .HasColumnName("productId")
+                    .HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Size)
+                    .HasColumnName("size")
+                    .HasMaxLength(10);
+            });
+
             modelBuilder.Entity<ProductTbl>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -43,18 +61,10 @@ namespace PandaTea.Models
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Price)
-                    .HasColumnName("price")
-                    .HasColumnType("decimal(6, 2)");
-
                 entity.Property(e => e.ProductName)
                     .IsRequired()
                     .HasColumnName("productName")
                     .HasMaxLength(50);
-
-                entity.Property(e => e.Size)
-                    .HasColumnName("size")
-                    .HasMaxLength(10);
             });
 
             modelBuilder.Entity<ReviewTbl>(entity =>
@@ -186,11 +196,17 @@ namespace PandaTea.Models
                     .HasColumnName("lastName")
                     .HasMaxLength(50);
 
+                entity.Property(e => e.Password)
+                    .HasColumnName("password")
+                    .HasMaxLength(64);
+
                 entity.Property(e => e.PhoneNumber)
                     .HasColumnName("phoneNumber")
                     .HasMaxLength(20)
                     .IsUnicode(false);
             });
         }
+
+        public DbSet<PandaTea.Models.MenuTbl> MenuTbl { get; set; }
     }
 }

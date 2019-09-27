@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PandaTea.Models.ProductTbl>
+﻿@model IEnumerable<PandaTea.Models.MenuTbl>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,13 +14,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                @Html.DisplayNameFor(model => model.ProductId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Size)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calories)
             </th>
             <th></th>
         </tr>
@@ -29,7 +32,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
+                @Html.DisplayFor(modelItem => item.ProductId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Size)
@@ -38,9 +41,12 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Calories)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
             </td>
         </tr>
 }
