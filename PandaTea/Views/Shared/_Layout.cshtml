@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PandaTea</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <link rel="stylesheet" href="~/css/general.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="navbar-container" role="navigation">
+        <div class="logo-container">
+            <img src="~/images/logo.png" alt="logo" />
+        </div>
+        <div class="navbar-menu">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+            <a asp-area="" asp-controller="User" asp-action="Index">User</a>
+            <a asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
+            <a asp-area="" asp-controller="Review" asp-action="Index">Review</a>
+            <a asp-area="" asp-controller="Store" asp-action="Index">Store</a>
+            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+            <partial name="_LoginPartial" />
+        </div>
+    </div>
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,16 +51,16 @@
                 <partial name="_LoginPartial" />
             </div>
         </div>
-    </nav>
+    </nav>*@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <div id="content-container">
         @RenderBody()
-        <hr />
+        @*<hr />
         <footer>
             <p>&copy; 2019 - PandaTea</p>
-        </footer>
+        </footer>*@
     </div>
 
     <environment include="Development">

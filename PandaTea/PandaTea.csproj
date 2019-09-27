@@ -6,6 +6,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Product\Create.cshtml" />
+    <None Include="Views\Product\Delete.cshtml" />
+    <None Include="Views\Product\Details.cshtml" />
+    <None Include="Views\Product\Edit.cshtml" />
+    <None Include="Views\Product\Index.cshtml" />
+    <None Include="Views\Review\Create.cshtml" />
+    <None Include="Views\Review\Delete.cshtml" />
+    <None Include="Views\Review\Details.cshtml" />
+    <None Include="Views\Review\Edit.cshtml" />
+    <None Include="Views\Review\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\Store\Create.cshtml" />
+    <None Include="Views\Store\Delete.cshtml" />
+    <None Include="Views\Store\Details.cshtml" />
+    <None Include="Views\Store\Edit.cshtml" />
+    <None Include="Views\Store\Index.cshtml" />
+    <None Include="Views\Transaction\Create.cshtml" />
+    <None Include="Views\Transaction\Delete.cshtml" />
+    <None Include="Views\Transaction\Details.cshtml" />
+    <None Include="Views\Transaction\Edit.cshtml" />
+    <None Include="Views\Transaction\Index.cshtml" />
+    <None Include="Views\User\Create.cshtml" />
+    <None Include="Views\User\Delete.cshtml" />
+    <None Include="Views\User\Details.cshtml" />
+    <None Include="Views\User\Edit.cshtml" />
+    <None Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />

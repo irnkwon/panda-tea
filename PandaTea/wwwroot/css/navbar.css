@@ -1,0 +1,27 @@
+﻿#navbar-container {
+    position:fixed;
+    background-color: #2C2E39;
+    width: 300px;
+    height: 100vh;
+}
+
+.logo-container {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.navbar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 0 0 50px;
+}
+
+.navbar-menu a, .navbar-menu partial {
+    color: #ffffff;
+    font-size: 1.5em;
+    padding-bottom: 20px;
+    text-decoration: none;
+}
