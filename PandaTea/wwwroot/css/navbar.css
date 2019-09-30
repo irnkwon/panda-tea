@@ -13,6 +13,10 @@
     height: 150px;
 }
 
+.logo img {
+    width: 250px;
+}
+
 .navbar-menu {
     display: flex;
     flex-direction: column;
