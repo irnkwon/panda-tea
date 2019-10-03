@@ -71,7 +71,7 @@ namespace PandaTea
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Menu}/{action=Index}/{id?}");
             });
         }
     }
