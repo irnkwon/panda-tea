@@ -7,9 +7,9 @@
 
     <link rel="stylesheet" href="~/css/general.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="navbar-container" role="navigation">
@@ -18,20 +18,24 @@
         </div>
         <div class="navbar-menu">
             <a asp-area="" asp-controller="Menu" asp-action="Index">Home</a>
-            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
             <a asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
-            @*<a asp-area="" asp-controller="Store" asp-action="Index">Store</a>
-            <a asp-area="" asp-controller="User" asp-action="Index">User</a>*@
             <a asp-area="" asp-controller="Review" asp-action="Index">Review</a>
-            @*<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
+            <a asp-area="" asp-controller="Store" asp-action="Index">Store</a>
+            <a asp-area="" asp-controller="User" asp-action="Index">User</a>
+            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
             <partial name="_LoginPartial" />
         </div>
     </div>
 
-    @*<partial name="_CookieConsentPartial" />*@
+    <partial name="_CookieConsentPartial" />
 
     <div id="content-container">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - PandaTea</p>
+        </footer>
     </div>
 
     <environment include="Development">
