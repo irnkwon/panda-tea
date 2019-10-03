@@ -1,0 +1,44 @@
+﻿#navbar-container {
+    position: fixed;
+    background-color: #2C2E39;
+    width: 300px;
+    height: 100vh;
+}
+
+.logo {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.logo img {
+    width: 250px;
+}
+
+.navbar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 0 0 50px;
+}
+
+.navbar-menu a, .navbar-menu partial {
+    color: #FFFFFF;
+    font-size: 1.5em;
+    padding-bottom: 20px;
+    text-decoration: none;
+}
+
+.login-btn {
+    color: #2C2E39 !important;
+    width: 90px;
+    height: 25px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid white;
+    background: #F3F3F5;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 50px;
+}
