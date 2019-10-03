@@ -1,21 +1,61 @@
 ﻿#home-container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+}
+
+.reward-bar {
+    margin-top: 100px;
+}
+
+.reward-bar img {
+    width: 1160px;
+    height: 50px;
+}
+
+.bbt-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 0;
 }
 
 .bbt {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #F3F3F5;
     border-radius: 15px;
-    font-family: 'Caveat', cursive !important;
-    font-size: 1.7em;
-    padding: 30px;
+    width: 293px;
+    height: 293px;
+    padding: 30px 40px;
+    margin: 0 20px 20px 0;
 }
 
-.bbt img {
-    width: 200px;
-    height: auto;
-    padding-bottom: 20px;
+.bbt div:first-child {
+    display: flex;
+    justify-content: center;
+}
+
+.bbt-img {
+    padding-right: 50px;
+}
+
+.bbt-img img {
+    width: 150px;
+    height: 250px;
+}
+
+.bbt-review {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.bbt-name {
+    font-family: 'Caveat', cursive !important;
+    font-size: 2em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.star, .star-filled {
+    width: 32px;
+    height: 32px;
+    padding-bottom: 10px;
 }
