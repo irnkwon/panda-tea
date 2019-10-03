@@ -1,22 +1,47 @@
-﻿.form-group {
-    /*background: aquamarine;*/
+﻿hr {
+    border: none;
 }
 
-hr {
-    border: 1px #7F6791;
-}
-
-.form-group .btn, #profile_form .btn, .btn .btn-default {
+/*.form-group .btn, #profile_form .btn, .btn .btn-default {
     background-color: white;
     color: #7F6791;
     border-radius: 1em;
-    padding: 1em;
-    border: 2px solid #7F6791;
+    padding: 0.5em 1em 0.5em 1em;
+    border: 2px solid #2C2E39;
+    width: 10em;
+    font-size: larger;
+}*/
+
+.form-group a {
+    color: #7F6791;
 }
+
 .checkbox {
-    color: #2C2E39;
     font-weight: bold;
 }
 .div {
     padding: 1em;
+}
+
+h2 {
+    color: #7F6791;
+}
+
+form label, form input {
+    padding: 0.5em;
+}
+
+input {
+    border:1px solid lightgray;
+    border-radius: 1em;
+    background-color: lightgray;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+checkbox {
+    margin: 1em;
 }

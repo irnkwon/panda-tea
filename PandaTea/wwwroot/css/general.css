@@ -2,8 +2,19 @@
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    color: #2C2E39;
 }
 
 #content-container {
     padding: 50px 0 0 350px;
+}
+
+button[type=submit] {
+    background-color: white;
+    color: #7F6791;
+    border-radius: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    border: 2px solid #2C2E39;
+    width: 10em;
+    font-size: larger;
 }
