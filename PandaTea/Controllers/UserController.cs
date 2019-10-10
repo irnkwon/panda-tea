@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PandaTea.Models;
 
@@ -29,23 +27,42 @@ namespace PandaTea.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Remove("UserId");
+            HttpContext.Session.Remove("FirstName");
+            RedirectToAction("Index", "Menu");
+            return Json(new { status = true, message = "Logout Successful" });
+        }
+
         public ActionResult Validate(UserTbl user)
         {
             var userTbl = _context.UserTbl.Where(s => s.Email == user.Email);
+            string userId = "";
+            string firstName = "";
             if (userTbl.Any())
             {
                 if (userTbl.Where(s => s.Password == user.Password).Any())
                 {
-                    return Json(new { status = true, message = "Login Successfull!" });
+                    foreach (var item in userTbl.ToList())
+                    {
+                        userId = item.UserId.ToString();
+                        firstName = item.FirstName.ToString();
+                    }
+
+                    HttpContext.Session.SetString("UserId", userId);
+                    HttpContext.Session.SetString("FirstName", firstName);
+
+                    return Json(new { status = true, message = "Logged In" });
                 }
                 else
                 {
-                    return Json(new { status = false, message = "Invalid Password!" });
+                    return Json(new { status = false, message = "Invalid Password" });
                 }
             }
             else
             {
-                return Json(new { status = false, message = "Invalid Email!" });
+                return Json(new { status = false, message = "Invalid Email" });
             }
         }
 

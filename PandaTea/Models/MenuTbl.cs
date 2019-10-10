@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PandaTea.Models
+﻿namespace PandaTea.Models
 {
     public partial class MenuTbl
     {

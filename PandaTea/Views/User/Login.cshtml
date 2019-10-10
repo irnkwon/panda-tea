@@ -11,7 +11,7 @@
         <input type="text" name="email" id="email" placeholder="Email">
     </div>
     <div data-validate="Password is required">
-        <input class="input100" type="password" name="password" id="password" placeholder="Password">
+        <input type="password" name="password" id="password" placeholder="Password">
     </div>
     <div>
         <input type="button" value="Login" onclick="Validate()">
@@ -34,7 +34,7 @@
       success: function (result) {
         console.log(result);
         if (result.status == true) {
-          window.location.href = '@Url.Action("Index", "Transaction")';
+          window.location.href = '@Url.Action("Index", "Menu")';
         }
         else {
           alert(result.message);

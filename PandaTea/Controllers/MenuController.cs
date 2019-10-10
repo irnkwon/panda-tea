@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PandaTea.Models;
 
@@ -21,6 +19,10 @@ namespace PandaTea.Controllers
         // GET: Menu
         public async Task<IActionResult> Index()
         {
+            string message = HttpContext.Session.GetString("FirstName") == null ? "" : "Welcome " + HttpContext.Session.GetString("FirstName") + "!";
+
+            TempData["Message"] = message;
+            ViewBag.Message = TempData["Message"];
             return View(await _context.MenuTbl.ToListAsync());
         }
 

@@ -17,19 +17,23 @@
         <div class="logo">
             <img src="~/images/logo.png" alt="logo" />
         </div>
+
         <div class="navbar-menu">
             <a asp-area="" asp-controller="Menu" asp-action="Index">Home</a>
             <a asp-area="" asp-controller="Home" asp-action="About">About</a>
             <a asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
-            @*<a asp-area="" asp-controller="Store" asp-action="Index">Store</a>
-            <a asp-area="" asp-controller="User" asp-action="Index">User</a>*@
+            <a asp-area="" asp-controller="Store" asp-action="Index">Store</a>
             <a asp-area="" asp-controller="Review" asp-action="Index">Review</a>
-            @*<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
-            <partial name="_LoginPartial" />
+            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+            <input type="button" value="Login" onclick="location.href='@Url.Action("Login", "User")'" />
+            <input type="button" value="Logout" onclick="Logout()">
+
+            @*Added a TempData variable*@
+            <div id="tempdata">
+                <font color="white">@TempData["Message"]</font>
+            </div>
         </div>
     </div>
-
-    @*<partial name="_CookieConsentPartial" />*@
 
     <div id="content-container">
         @RenderBody()
@@ -57,5 +61,28 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+
+    <script>
+      function Logout() {
+        $.ajax(
+        {
+          type: "POST",
+          url: '@Url.Action("Logout", "User")',
+          error: function (result) {
+              alert("Failed to log out");
+          },
+          success: function (result) {
+            console.log(result);
+            if (result.status == true) {
+              window.location.href = '@Url.Action("Index", "Menu")';
+            }
+            else {
+              alert(result.message);
+            }
+          }
+        });
+      }
+    </script>
+
 </body>
 </html>
