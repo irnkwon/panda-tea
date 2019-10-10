@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using PandaTea.Models;
 
 namespace PandaTea.Models
 {
@@ -16,6 +15,7 @@ namespace PandaTea.Models
         {
         }
 
+        public virtual DbSet<MenuTbl> MenuTbl { get; set; }
         public virtual DbSet<ProductTbl> ProductTbl { get; set; }
         public virtual DbSet<ReviewTbl> ReviewTbl { get; set; }
         public virtual DbSet<StoreTbl> StoreTbl { get; set; }
@@ -105,7 +105,8 @@ namespace PandaTea.Models
 
                 entity.Property(e => e.StoreId)
                     .HasColumnName("storeId")
-                    .HasColumnType("numeric(18, 0)");
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Address)
                     .HasColumnName("address")
@@ -144,7 +145,8 @@ namespace PandaTea.Models
 
                 entity.Property(e => e.TransactionId)
                     .HasColumnName("transactionId")
-                    .HasColumnType("numeric(18, 0)");
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.DatePurchased)
                     .HasColumnName("datePurchased")
@@ -198,7 +200,8 @@ namespace PandaTea.Models
 
                 entity.Property(e => e.Password)
                     .HasColumnName("password")
-                    .HasMaxLength(64);
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PhoneNumber)
                     .HasColumnName("phoneNumber")
@@ -206,7 +209,5 @@ namespace PandaTea.Models
                     .IsUnicode(false);
             });
         }
-
-        public DbSet<PandaTea.Models.MenuTbl> MenuTbl { get; set; }
     }
 }
