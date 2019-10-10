@@ -24,6 +24,31 @@ namespace PandaTea.Controllers
             return View(await _context.UserTbl.ToListAsync());
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Validate(UserTbl user)
+        {
+            var userTbl = _context.UserTbl.Where(s => s.Email == user.Email);
+            if (userTbl.Any())
+            {
+                if (userTbl.Where(s => s.Password == user.Password).Any())
+                {
+                    return Json(new { status = true, message = "Login Successfull!" });
+                }
+                else
+                {
+                    return Json(new { status = false, message = "Invalid Password!" });
+                }
+            }
+            else
+            {
+                return Json(new { status = false, message = "Invalid Email!" });
+            }
+        }
+
         // GET: User/Details/5
         public async Task<IActionResult> Details(decimal? id)
         {
