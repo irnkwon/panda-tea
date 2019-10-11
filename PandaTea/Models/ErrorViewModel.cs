@@ -1,5 +1,3 @@
-using System;
-
 namespace PandaTea.Models
 {
     public class ErrorViewModel
