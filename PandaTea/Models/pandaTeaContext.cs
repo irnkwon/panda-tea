@@ -13,16 +13,16 @@ namespace PandaTea.Models
         {
         }
 
-        public virtual DbSet<MenuTbl> MenuTbl { get; set; }
-        public virtual DbSet<ProductTbl> ProductTbl { get; set; }
-        public virtual DbSet<ReviewTbl> ReviewTbl { get; set; }
-        public virtual DbSet<StoreTbl> StoreTbl { get; set; }
-        public virtual DbSet<TransactionTbl> TransactionTbl { get; set; }
-        public virtual DbSet<UserTbl> UserTbl { get; set; }
+        public virtual DbSet<MenuModel> MenuModel { get; set; }
+        public virtual DbSet<ProductModel> ProductModel { get; set; }
+        public virtual DbSet<ReviewModel> ReviewModel { get; set; }
+        public virtual DbSet<StoreModel> StoreModel { get; set; }
+        public virtual DbSet<TransactionModel> TransactionModel { get; set; }
+        public virtual DbSet<UserModel> UserModel { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MenuTbl>(entity =>
+            modelBuilder.Entity<MenuModel>(entity =>
             {
                 entity.HasKey(e => e.MenuId);
 
@@ -48,7 +48,7 @@ namespace PandaTea.Models
                     .HasMaxLength(10);
             });
 
-            modelBuilder.Entity<ProductTbl>(entity =>
+            modelBuilder.Entity<ProductModel>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
 
@@ -65,7 +65,7 @@ namespace PandaTea.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ReviewTbl>(entity =>
+            modelBuilder.Entity<ReviewModel>(entity =>
             {
                 entity.HasKey(e => e.ReviewId);
 
@@ -95,7 +95,7 @@ namespace PandaTea.Models
                     .HasColumnType("numeric(18, 0)");
             });
 
-            modelBuilder.Entity<StoreTbl>(entity =>
+            modelBuilder.Entity<StoreModel>(entity =>
             {
                 entity.HasKey(e => e.StoreId);
 
@@ -135,7 +135,7 @@ namespace PandaTea.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<TransactionTbl>(entity =>
+            modelBuilder.Entity<TransactionModel>(entity =>
             {
                 entity.HasKey(e => e.TransactionId);
 
@@ -169,7 +169,7 @@ namespace PandaTea.Models
                     .HasColumnType("numeric(18, 0)");
             });
 
-            modelBuilder.Entity<UserTbl>(entity =>
+            modelBuilder.Entity<UserModel>(entity =>
             {
                 entity.HasKey(e => e.UserId);
 
