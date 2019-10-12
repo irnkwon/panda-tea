@@ -78,7 +78,7 @@ namespace PandaTea.Models
 
                 entity.Property(e => e.DateReviewed)
                     .HasColumnName("dateReviewed")
-                    .HasColumnType("date");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.ProductId)
                     .HasColumnName("productId")
@@ -148,7 +148,7 @@ namespace PandaTea.Models
 
                 entity.Property(e => e.DatePurchased)
                     .HasColumnName("datePurchased")
-                    .HasColumnType("date");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.MenutId)
                     .HasColumnName("menutId")
