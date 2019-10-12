@@ -75,7 +75,7 @@ namespace PandaTea.Controllers
         /// <returns>View with OrderModel data</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,UserId,ProductId,StoreId,Quantity,Price,DatePurchased")] OrderModel orderModel)
+        public async Task<IActionResult> Create([Bind("OrderId,UserId,MenutId,StoreId,Quantity,DatePurchased")] OrderModel orderModel)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace PandaTea.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("OrderId,UserId,ProductId,StoreId,Quantity,Price,DatePurchased")] OrderModel orderModel)
+        public async Task<IActionResult> Edit(decimal id, [Bind("OrderId,UserId,MenutId,StoreId,Quantity,DatePurchased")] OrderModel orderModel)
         {
             if (id != orderModel.OrderId)
             {
@@ -156,14 +156,14 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var OrderModel = await _context.OrderModel
+            var orderModel = await _context.OrderModel
                 .FirstOrDefaultAsync(m => m.OrderId == id);
-            if (OrderModel == null)
+            if (orderModel == null)
             {
                 return NotFound();
             }
 
-            return View(OrderModel);
+            return View(orderModel);
         }
 
         /// <summary>
