@@ -49,14 +49,14 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var storeTbl = await _context.StoreModel
+            var storeModel = await _context.StoreModel
                 .FirstOrDefaultAsync(m => m.StoreId == id);
-            if (storeTbl == null)
+            if (storeModel == null)
             {
                 return NotFound();
             }
 
-            return View(storeTbl);
+            return View(storeModel);
         }
 
         /// <summary>
@@ -75,15 +75,15 @@ namespace PandaTea.Controllers
         /// <returns>View with StoreModel data</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StoreId,StoreName,Address,Street,City,State,Country,PostalCode")] StoreModel storeTbl)
+        public async Task<IActionResult> Create([Bind("StoreId,StoreName,Address,Street,City,State,Country,PostalCode")] StoreModel storeModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(storeTbl);
+                _context.Add(storeModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(storeTbl);
+            return View(storeModel);
         }
 
         /// <summary>
@@ -98,12 +98,12 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var storeTbl = await _context.StoreModel.FindAsync(id);
-            if (storeTbl == null)
+            var storeModel = await _context.StoreModel.FindAsync(id);
+            if (storeModel == null)
             {
                 return NotFound();
             }
-            return View(storeTbl);
+            return View(storeModel);
         }
 
         /// <summary>
@@ -114,9 +114,9 @@ namespace PandaTea.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(decimal id, [Bind("StoreId,StoreName,Address,Street,City,State,Country,PostalCode")] StoreModel storeTbl)
+        public async Task<IActionResult> Edit(decimal id, [Bind("StoreId,StoreName,Address,Street,City,State,Country,PostalCode")] StoreModel storeModel)
         {
-            if (id != storeTbl.StoreId)
+            if (id != storeModel.StoreId)
             {
                 return NotFound();
             }
@@ -125,12 +125,12 @@ namespace PandaTea.Controllers
             {
                 try
                 {
-                    _context.Update(storeTbl);
+                    _context.Update(storeModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StoreModelExists(storeTbl.StoreId))
+                    if (!StoreModelExists(storeModel.StoreId))
                     {
                         return NotFound();
                     }
@@ -141,7 +141,7 @@ namespace PandaTea.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(storeTbl);
+            return View(storeModel);
         }
 
         /// <summary>
@@ -156,14 +156,14 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var storeTbl = await _context.StoreModel
+            var storeModel = await _context.StoreModel
                 .FirstOrDefaultAsync(m => m.StoreId == id);
-            if (storeTbl == null)
+            if (storeModel == null)
             {
                 return NotFound();
             }
 
-            return View(storeTbl);
+            return View(storeModel);
         }
 
         /// <summary>
@@ -175,8 +175,8 @@ namespace PandaTea.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(decimal id)
         {
-            var storeTbl = await _context.StoreModel.FindAsync(id);
-            _context.StoreModel.Remove(storeTbl);
+            var storeModel = await _context.StoreModel.FindAsync(id);
+            _context.StoreModel.Remove(storeModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

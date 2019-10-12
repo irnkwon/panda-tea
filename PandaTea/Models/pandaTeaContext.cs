@@ -17,7 +17,7 @@ namespace PandaTea.Models
         public virtual DbSet<ProductModel> ProductModel { get; set; }
         public virtual DbSet<ReviewModel> ReviewModel { get; set; }
         public virtual DbSet<StoreModel> StoreModel { get; set; }
-        public virtual DbSet<TransactionModel> TransactionModel { get; set; }
+        public virtual DbSet<OrderModel> OrderModel { get; set; }
         public virtual DbSet<UserModel> UserModel { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -135,14 +135,14 @@ namespace PandaTea.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<TransactionModel>(entity =>
+            modelBuilder.Entity<OrderModel>(entity =>
             {
-                entity.HasKey(e => e.TransactionId);
+                entity.HasKey(e => e.OrderId);
 
-                entity.ToTable("transactionTbl");
+                entity.ToTable("orderTbl");
 
-                entity.Property(e => e.TransactionId)
-                    .HasColumnName("transactionId")
+                entity.Property(e => e.OrderId)
+                    .HasColumnName("orderId")
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 

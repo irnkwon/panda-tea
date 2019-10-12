@@ -1,19 +1,23 @@
-﻿@model PandaTea.Models.TransactionModel
+﻿@model PandaTea.Models.OrderModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Create</h2>
 
-<h4>Transaction</h4>
+<h4>Order</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TransactionId" />
+            <div class="form-group">
+                <label asp-for="OrderId" class="control-label"></label>
+                <input asp-for="OrderId" class="form-control" />
+                <span asp-validation-for="OrderId" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="UserId" class="control-label"></label>
                 <input asp-for="UserId" class="form-control" />
@@ -45,7 +49,7 @@
                 <span asp-validation-for="DatePurchased" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>

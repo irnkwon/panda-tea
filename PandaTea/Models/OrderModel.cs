@@ -1,4 +1,4 @@
-﻿/* TransactionModel.cs
+﻿/* OrderModel.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -14,11 +14,11 @@ using System;
 namespace PandaTea.Models
 {
     /// <summary>
-    /// Model class for Transaction data
+    /// Model class for Order data
     /// </summary>
-    public partial class TransactionModel
+    public partial class OrderModel
     {
-        public decimal TransactionId { get; set; }
+        public decimal OrderId { get; set; }
         public decimal UserId { get; set; }
         public decimal ProductId { get; set; }
         public decimal StoreId { get; set; }
