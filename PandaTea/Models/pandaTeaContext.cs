@@ -17,7 +17,7 @@ namespace PandaTea.Models
         public virtual DbSet<ProductModel> ProductModel { get; set; }
         public virtual DbSet<ReviewModel> ReviewModel { get; set; }
         public virtual DbSet<StoreModel> StoreModel { get; set; }
-        public virtual DbSet<TransactionModel> TransactionModel { get; set; }
+        public virtual DbSet<OrderModel> OrderModel { get; set; }
         public virtual DbSet<UserModel> UserModel { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -78,7 +78,7 @@ namespace PandaTea.Models
 
                 entity.Property(e => e.DateReviewed)
                     .HasColumnName("dateReviewed")
-                    .HasColumnType("date");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.ProductId)
                     .HasColumnName("productId")
@@ -135,27 +135,23 @@ namespace PandaTea.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<TransactionModel>(entity =>
+            modelBuilder.Entity<OrderModel>(entity =>
             {
-                entity.HasKey(e => e.TransactionId);
+                entity.HasKey(e => e.OrderId);
 
-                entity.ToTable("transactionTbl");
+                entity.ToTable("orderTbl");
 
-                entity.Property(e => e.TransactionId)
-                    .HasColumnName("transactionId")
+                entity.Property(e => e.OrderId)
+                    .HasColumnName("orderId")
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.DatePurchased)
                     .HasColumnName("datePurchased")
-                    .HasColumnType("date");
+                    .HasColumnType("datetime");
 
-                entity.Property(e => e.Price)
-                    .HasColumnName("price")
-                    .HasColumnType("decimal(6, 2)");
-
-                entity.Property(e => e.ProductId)
-                    .HasColumnName("productId")
+                entity.Property(e => e.MenutId)
+                    .HasColumnName("menutId")
                     .HasColumnType("numeric(18, 0)");
 
                 entity.Property(e => e.Quantity).HasColumnName("quantity");

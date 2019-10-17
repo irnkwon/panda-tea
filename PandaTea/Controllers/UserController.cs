@@ -68,14 +68,14 @@ namespace PandaTea.Controllers
         /// <returns>ActionResult object with status and message</returns>
         public ActionResult Validate(UserModel user)
         {
-            var userTbl = _context.UserModel.Where(s => s.Email == user.Email);
+            var userModel = _context.UserModel.Where(s => s.Email == user.Email);
             string userId = "";
             string firstName = "";
-            if (userTbl.Any())
+            if (userModel.Any())
             {
-                if (userTbl.Where(s => s.Password == user.Password).Any())
+                if (userModel.Where(s => s.Password == user.Password).Any())
                 {
-                    foreach (var item in userTbl.ToList())
+                    foreach (var item in userModel.ToList())
                     {
                         userId = item.UserId.ToString();
                         firstName = item.FirstName.ToString();
@@ -109,14 +109,14 @@ namespace PandaTea.Controllers
                 return NotFound();
             }
 
-            var userTbl = await _context.UserModel
+            var userModel = await _context.UserModel
                 .FirstOrDefaultAsync(m => m.UserId == id);
-            if (userTbl == null)
+            if (userModel == null)
             {
                 return NotFound();
             }
 
-            return View(userTbl);
+            return View(userModel);
         }
 
         /// <summary>

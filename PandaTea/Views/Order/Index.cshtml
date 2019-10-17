@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PandaTea.Models.TransactionModel>
+﻿@model IEnumerable<PandaTea.Models.OrderModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -17,16 +17,13 @@
                 @Html.DisplayNameFor(model => model.UserId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductId)
+                @Html.DisplayNameFor(model => model.MenutId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StoreId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DatePurchased)
@@ -41,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.UserId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductId)
+                @Html.DisplayFor(modelItem => item.MenutId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StoreId)
@@ -50,15 +47,12 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DatePurchased)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
             </td>
         </tr>
 }
