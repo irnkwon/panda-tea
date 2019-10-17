@@ -1,16 +1,17 @@
-﻿#home-container {
+﻿/*
+    home.css
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-17: Modified
+*/
+
+#home-container {
     display: flex;
     flex-direction: column;
 }
-
-/*.reward-bar {
-    margin-top: 100px;
-}
-
-.reward-bar img {
-    width: 1160px;
-    height: 50px;
-}*/
 
 .bbt-container {
     display: flex;
@@ -47,7 +48,7 @@
     padding-top: 20px;
 }
 
-.bbt-name {
+.bbt-name, .bbt-price {
     font-family: 'Caveat', cursive !important;
     font-size: 2em;
     margin-top: 10px;
@@ -58,4 +59,10 @@
     width: 32px;
     height: 32px;
     padding-bottom: 10px;
+}
+
+.bbt-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

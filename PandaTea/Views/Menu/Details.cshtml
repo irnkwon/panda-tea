@@ -1,16 +1,73 @@
-﻿@model PandaTea.Models.MenuModel
+﻿@*
+    Details.cshtml
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-17: Modified
+*@
+
+@model PandaTea.Models.MenuModel
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div id="home-details-container">
+    <div class="bbt-container">
+        <div class="bbt-details">
+            <div>
+                <div class="bbt-name">
+                    Strawberry Explosion
+                </div>
+                <div class="bbt-price">
+                    @Html.DisplayFor(model => model.Price)
+                </div>
+                <div class="bbt-content">
+                    <div class="bbt-img">
+                        @switch (Model.ProductId)
+                        {
+                            case 1:
+                                <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
+                                break;
 
-<div>
-    <h4>Menu</h4>
-    <hr />
-    <dl class="dl-horizontal">
+                            case 2:
+                                <img src="~/images/mango-delight.png" alt="mango-delight" />
+                                break;
+
+                            case 3:
+                                <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
+                                break;
+                            case 4:
+                                <img src="~/images/coffee-chill.png" alt="coffee-chill" />
+                                break;
+                            case 5:
+                                <img src="~/images/zen-matcha.png" alt="zen-matcha" />
+                                break;
+                            case 6:
+                                <img src="~/images/taro-basic.png" alt="taro-basic" />
+                                break;
+                        }
+                    </div>
+                    <div class="bbt-review">
+                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                        <img src="~/images/star.png" alt="star" class="star" />
+                    </div>
+                </div>
+                <input type="radio" name="size" value="Small">Small<br>
+                <input type="radio" name="size" value="Medium">Medium<br>
+                <input type="radio" name="size" value="Large">Large<br>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ProductId)
         </dt>
@@ -35,9 +92,4 @@
         <dd>
             @Html.DisplayFor(model => model.Calories)
         </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.MenuId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    </dl>*@
