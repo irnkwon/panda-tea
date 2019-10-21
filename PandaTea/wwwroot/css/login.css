@@ -1,8 +1,8 @@
-﻿hr {
+﻿/* hr {
     border: none;
 }
 
-/*.form-group .btn, #profile_form .btn, .btn .btn-default {
+.form-group .btn, #profile_form .btn, .btn .btn-default {
     background-color: white;
     color: #7F6791;
     border-radius: 1em;
@@ -10,7 +10,7 @@
     border: 2px solid #2C2E39;
     width: 10em;
     font-size: larger;
-}*/
+}
 
 .form-group a {
     color: #7F6791;
@@ -45,3 +45,4 @@ label {
 checkbox {
     margin: 1em;
 }
+    */

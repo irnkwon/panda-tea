@@ -1,9 +1,42 @@
-﻿html, body {
+﻿/*
+    general.css
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-21: Modified
+*/
+
+/*
+    General 
+*/
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
 }
 
 #content-container {
     padding: 50px 0 0 350px;
+}
+
+/*
+    Button Theme
+*/
+.panda-button, .panda-button-2 {
+    font-size: 15px;
+    width: 130px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+}
+
+.panda-button-2 {
+    margin: 30px 0 0 15px;
+    background-color: grey;
 }

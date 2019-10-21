@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-17: Modified
+             Haeryun Kwon, 2019-10-21: Modified
 */
 
 #home-container {
@@ -28,6 +28,11 @@
     margin: 0 20px 20px 0;
 }
 
+.bbt a {
+    color: black;
+    text-decoration: none;
+}
+
 .bbt div:first-child {
     display: flex;
     justify-content: center;
@@ -48,9 +53,9 @@
     padding-top: 20px;
 }
 
-.bbt-name, .bbt-price {
+.bbt-name, .bbt-price, .bbt-name > div {
     font-family: 'Caveat', cursive !important;
-    font-size: 2em;
+    font-size: 1.4em;
     margin-top: 10px;
     text-align: center;
 }
@@ -65,4 +70,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
 }

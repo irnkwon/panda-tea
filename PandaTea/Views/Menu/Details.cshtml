@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-17: Modified
+             Haeryun Kwon, 2019-10-21: Modified
 *@
 
 @model PandaTea.Models.MenuModel
@@ -20,7 +20,29 @@
         <div class="bbt-details">
             <div>
                 <div class="bbt-name">
-                    Strawberry Explosion
+                    @switch (Model.ProductId)
+                    {
+                        case 1:
+                            <div>Strawberry Explosion</div>
+                            break;
+
+                        case 2:
+                            <div>Mango Delight</div>
+                            break;
+
+                        case 3:
+                            <div>Creamy Avocado</div>
+                            break;
+                        case 4:
+                            <div>Coffee Chill</div>
+                            break;
+                        case 5:
+                            <div>Zen Matcha</div>
+                            break;
+                        case 6:
+                            <div>Taro Basic</div>
+                            break;
+                    }
                 </div>
                 <div class="bbt-price">
                     @Html.DisplayFor(model => model.Price)
@@ -59,37 +81,18 @@
                         <img src="~/images/star.png" alt="star" class="star" />
                     </div>
                 </div>
-                <input type="radio" name="size" value="Small">Small<br>
-                <input type="radio" name="size" value="Medium">Medium<br>
-                <input type="radio" name="size" value="Large">Large<br>
+                <div>
+                    <input type="radio" name="size" value="Small"> Small (300 cals)<br>
+                    <input type="radio" name="size" value="Medium" > Medium (375 cals) + $0.50<br>
+                    <input type="radio" name="size" value="Large"> Large (425 cals) + $0.50<br>
+                    <label>Quantity</label>
+                    <input type="number" value="1" min="1" max="99" />
+                </div>
+                <div>
+                    <button class="panda-button">Add to Order</button>
+                    <button class="panda-button-2">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-@*<dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ProductId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Size)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Size)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Calories)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Calories)
-        </dd>
-    </dl>*@
