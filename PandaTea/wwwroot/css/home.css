@@ -44,7 +44,7 @@
 
 .bbt-img img {
     width: 150px;
-    height: 250px;
+    height: 255px;
 }
 
 .bbt-review {
@@ -56,9 +56,13 @@
 .bbt-name, .bbt-price, .bbt-name > div {
     font-family: 'Caveat', cursive !important;
     font-size: 1.4em;
-    font-weight: bold;
     margin-top: 10px;
     text-align: center;
+}
+
+#home-details-container > .bbt-container > div > .bbt-name,
+.bbt-price {
+    font-weight: bold;
 }
 
 .bbt-price {
@@ -93,7 +97,7 @@
 }
 
 .quantity {
-    margin-top: 20px;
+    margin-top: 1.5em;
 }
 
 .quantity > label {
