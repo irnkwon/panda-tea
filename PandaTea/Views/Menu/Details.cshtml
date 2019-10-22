@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-21: Modified
+             Haeryun Kwon, 2019-10-22: Modified
 *@
 
 @model PandaTea.Models.MenuModel
@@ -97,4 +97,93 @@
             </div>
         </div>
     </div>
+
+    <div id="modal">
+        <div class="modal-content">
+            <div class="modal-heading">Added to your order</div>
+            <div class="modal-bbt-content">
+                <div class="modal-bbt-img">
+                    @switch (Model.ProductId)
+                    {
+                        case 1:
+                            <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
+                            break;
+
+                        case 2:
+                            <img src="~/images/mango-delight.png" alt="mango-delight" />
+                            break;
+
+                        case 3:
+                            <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
+                            break;
+                        case 4:
+                            <img src="~/images/coffee-chill.png" alt="coffee-chill" />
+                            break;
+                        case 5:
+                            <img src="~/images/zen-matcha.png" alt="zen-matcha" />
+                            break;
+                        case 6:
+                            <img src="~/images/taro-basic.png" alt="taro-basic" />
+                            break;
+                    }
+                </div>
+                <div>
+                    <div class="modal-bbt-name">
+                        @switch (Model.ProductId)
+                        {
+                            case 1:
+                                <div>Strawberry Explosion</div>
+                                break;
+
+                            case 2:
+                                <div>Mango Delight</div>
+                                break;
+
+                            case 3:
+                                <div>Creamy Avocado</div>
+                                break;
+                            case 4:
+                                <div>Coffee Chill</div>
+                                break;
+                            case 5:
+                                <div>Zen Matcha</div>
+                                break;
+                            case 6:
+                                <div>Taro Basic</div>
+                                break;
+                        }
+                    </div>
+                    <div class="modal-bbt-details">
+                        <div class="modal-size">
+                            <label>Size: </label>
+                            Small
+                        </div>
+                        <div style="display: flex;">
+                            <div class="modal-quantity">
+                                <label>Qty: </label>
+                                1
+                            </div>
+                            <div>
+                                @Html.DisplayFor(model => model.Price)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="panda-button">Back to Menu</button>
+                <button class="panda-button-3">See My Order</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+          $(".panda-button").click(function(){
+            $("#modal").toggleClass("blue");
+          });
+        });
+    </script>
+}
