@@ -92,8 +92,8 @@
                 </div>
             </div>
             <div>
-                <button class="panda-button">Add to Order</button>
-                <button class="panda-button-2">Cancel</button>
+                <button id="panda-btn" class="order-btn">Add to Order</button>
+                <button id="panda-btn-2">Cancel</button>
             </div>
         </div>
     </div>
@@ -171,8 +171,8 @@
                 </div>
             </div>
             <div>
-                <button class="panda-button">Back to Menu</button>
-                <button class="panda-button-3">See My Order</button>
+                <button id="panda-btn" class="back-btn">Back to Menu</button>
+                <button id="panda-btn-3">See My Order</button>
             </div>
         </div>
     </div>
@@ -181,9 +181,12 @@
 @section Scripts {
     <script>
         $(document).ready(function(){
-          $(".panda-button").click(function(){
-            $("#modal").toggleClass("blue");
-          });
+            $(".order-btn").click(function(){
+                $("#modal").css("display", "block");
+            });
+            $(".back-btn").click(function () {
+                $("#modal").css("display", "none");
+            });
         });
     </script>
 }

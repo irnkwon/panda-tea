@@ -50,7 +50,7 @@ input[type=number]::-webkit-inner-spin-button {
 /*
     Button Theme
 */
-.panda-button, .panda-button-2, .panda-button-3 {
+#panda-btn, #panda-btn-2, #panda-btn-3 {
     font-size: 15px;
     width: 130px;
     height: 40px;
@@ -59,12 +59,12 @@ input[type=number]::-webkit-inner-spin-button {
     border: none;
 }
 
-.panda-button-2 {
+#panda-btn-2 {
     margin: 30px 0 0 15px;
     background-color: grey;
 }
 
-.panda-button-3 {
+#panda-btn-3 {
     margin: 30px 0 0 15px;
     color: #7F6791;
     background-color: #FFFFFF;
