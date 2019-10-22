@@ -21,7 +21,7 @@ html, body {
 }
 
 #content-container {
-    padding: 50px 0 0 350px;
+    padding-left: 350px;
 }
 
 input[type=number] {
@@ -32,6 +32,19 @@ input[type=number] {
 
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
+}
+
+.cart {
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.cart > img {
+    width: 50px;
+    height: auto;
 }
 
 /*
