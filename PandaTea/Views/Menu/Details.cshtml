@@ -93,7 +93,7 @@
             </div>
             <div>
                 <button id="panda-btn" class="order-btn">Add to Order</button>
-                <button id="panda-btn-2">Cancel</button>
+                <button id="panda-btn-2" class="cancel-btn">Cancel</button>
             </div>
         </div>
     </div>
@@ -183,6 +183,10 @@
         $(document).ready(function(){
             $(".order-btn").click(function(){
                 $("#modal").css("display", "block");
+            });
+            $(".cancel-btn").click(function () {
+                var _url = '@Url.Action("Index", "Menu")';
+                window.location.href = _url;
             });
             $(".back-btn").click(function () {
                 $("#modal").css("display", "none");
