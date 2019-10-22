@@ -17,81 +17,83 @@
 
 <div id="home-details-container">
     <div class="bbt-container">
-        <div class="bbt-details">
-            <div>
-                <div class="bbt-name">
+        <div>
+            <div class="bbt-name">
+                @switch (Model.ProductId)
+                {
+                    case 1:
+                        <div>Strawberry Explosion</div>
+                        break;
+
+                    case 2:
+                        <div>Mango Delight</div>
+                        break;
+
+                    case 3:
+                        <div>Creamy Avocado</div>
+                        break;
+                    case 4:
+                        <div>Coffee Chill</div>
+                        break;
+                    case 5:
+                        <div>Zen Matcha</div>
+                        break;
+                    case 6:
+                        <div>Taro Basic</div>
+                        break;
+                }
+            </div>
+            <div class="bbt-price">
+                @Html.DisplayFor(model => model.Price)
+            </div>
+            <div class="bbt-content">
+                <div class="bbt-img">
                     @switch (Model.ProductId)
                     {
                         case 1:
-                            <div>Strawberry Explosion</div>
+                            <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
                             break;
 
                         case 2:
-                            <div>Mango Delight</div>
+                            <img src="~/images/mango-delight.png" alt="mango-delight" />
                             break;
 
                         case 3:
-                            <div>Creamy Avocado</div>
+                            <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
                             break;
                         case 4:
-                            <div>Coffee Chill</div>
+                            <img src="~/images/coffee-chill.png" alt="coffee-chill" />
                             break;
                         case 5:
-                            <div>Zen Matcha</div>
+                            <img src="~/images/zen-matcha.png" alt="zen-matcha" />
                             break;
                         case 6:
-                            <div>Taro Basic</div>
+                            <img src="~/images/taro-basic.png" alt="taro-basic" />
                             break;
                     }
                 </div>
-                <div class="bbt-price">
-                    @Html.DisplayFor(model => model.Price)
+                <div class="bbt-review">
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star.png" alt="star" class="star" />
                 </div>
-                <div class="bbt-content">
-                    <div class="bbt-img">
-                        @switch (Model.ProductId)
-                        {
-                            case 1:
-                                <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
-                                break;
-
-                            case 2:
-                                <img src="~/images/mango-delight.png" alt="mango-delight" />
-                                break;
-
-                            case 3:
-                                <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
-                                break;
-                            case 4:
-                                <img src="~/images/coffee-chill.png" alt="coffee-chill" />
-                                break;
-                            case 5:
-                                <img src="~/images/zen-matcha.png" alt="zen-matcha" />
-                                break;
-                            case 6:
-                                <img src="~/images/taro-basic.png" alt="taro-basic" />
-                                break;
-                        }
-                    </div>
-                    <div class="bbt-review">
-                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
-                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
-                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
-                        <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
-                        <img src="~/images/star.png" alt="star" class="star" />
-                    </div>
-                </div>
-                <div>
+            </div>
+            <div class="bbt-details">
+                <div class="size">
                     <input type="radio" name="size" value="Small"> Small (300 cals)<br>
                     <input type="radio" name="size" value="Medium" > Medium (375 cals) + $0.50<br>
                     <input type="radio" name="size" value="Large"> Large (425 cals) + $0.50<br>
+                </div>
+                <div class="quantity">
                     <label>Quantity</label>
                     <input type="number" value="1" min="1" max="99" />
                 </div>
-                <div>
-                    <button class="panda-button">Add to Order</button>
-                    <button class="panda-button-2">Cancel</button>
-                </div>
+            </div>
+            <div>
+                <button class="panda-button">Add to Order</button>
+                <button class="panda-button-2">Cancel</button>
             </div>
         </div>
     </div>

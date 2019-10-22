@@ -56,8 +56,14 @@
 .bbt-name, .bbt-price, .bbt-name > div {
     font-family: 'Caveat', cursive !important;
     font-size: 1.4em;
+    font-weight: bold;
     margin-top: 10px;
     text-align: center;
+}
+
+.bbt-price {
+    font-size: 1.8em !important;
+    margin-bottom: 15px;
 }
 
 .star, .star-filled {
@@ -69,9 +75,28 @@
 .bbt-content {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
 }
 
-input[type=number]::-webkit-inner-spin-button {
-    opacity: 1;
+.bbt-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.size > input {
+    margin: 25px 10px 0 0;
+}
+
+.quantity {
+    margin-top: 20px;
+}
+
+.quantity > label {
+    font-weight: bold;
+    margin-right: 10px;
 }
