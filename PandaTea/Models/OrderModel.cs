@@ -20,7 +20,7 @@ namespace PandaTea.Models
     {
         public decimal OrderId { get; set; }
         public decimal UserId { get; set; }
-        public decimal MenutId { get; set; }
+        public decimal MenuId { get; set; }
         public decimal StoreId { get; set; }
         public int Quantity { get; set; }
         public DateTime? DatePurchased { get; set; }
