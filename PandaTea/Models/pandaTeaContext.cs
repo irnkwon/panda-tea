@@ -150,8 +150,8 @@ namespace PandaTea.Models
                     .HasColumnName("datePurchased")
                     .HasColumnType("datetime");
 
-                entity.Property(e => e.MenutId)
-                    .HasColumnName("menutId")
+                entity.Property(e => e.MenuId)
+                    .HasColumnName("menuId")
                     .HasColumnType("numeric(18, 0)");
 
                 entity.Property(e => e.Quantity).HasColumnName("quantity");
