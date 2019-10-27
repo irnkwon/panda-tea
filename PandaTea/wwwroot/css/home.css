@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-22: Modified
+             Haeryun Kwon, 2019-10-27: Modified
 */
 
 #home-container {
@@ -123,6 +123,13 @@
     font-family: 'Caveat', cursive !important;
     font-size: 1.7em;
     margin-bottom: 20px;
+    padding-left: 70px;
+}
+
+.modal-close {
+    width: 15px;
+    height: auto;
+    padding-left: 50px;
 }
 
 .modal-content {
