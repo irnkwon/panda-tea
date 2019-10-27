@@ -43,9 +43,7 @@
                         break;
                 }
             </div>
-            <div class="bbt-price">
-                @Html.DisplayFor(model => model.Price)
-            </div>
+            <div class="bbt-price">@Html.DisplayFor(m => m.Price)</div>
             <div class="bbt-content">
                 <div class="bbt-img">
                     @switch (Model.ProductId)
@@ -166,8 +164,7 @@
                                 <label>Qty: </label>
                                 <div class="quantity-value"></div>
                             </div>
-                            <div>
-                                @Html.DisplayFor(model => model.Price)
+                            <div class="modal-price">
                             </div>
                         </div>
                     </div>
@@ -195,13 +192,27 @@
                     selectedValue = selectedSize.val();
                     $(".size-value").text(selectedValue);
                 }
+
+                var totalPrice = 0;
+                if (selectedValue == "Small") {
+                    totalPrice = 3.99 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+                if (selectedValue == "Medium") {
+                    totalPrice = 4.49 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+                if (selectedValue == "Large") {
+                    totalPrice = 4.99 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
             });
             $(".cancel-btn").click(function () {
-                var _url = '@Url.Action("Index", "Menu")';
+                var _url = '/**************************/';
                 window.location.href = _url;
             });
             $(".back-btn").click(function () {
-                var _url = '@Url.Action("Index", "Menu")';
+                var _url = '/**************************/';
                 window.location.href = _url;
             });
             $(".modal-close").click(function () {
