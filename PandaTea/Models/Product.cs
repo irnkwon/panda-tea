@@ -27,6 +27,7 @@ namespace PandaTea.Models
 
         public decimal ProductId { get; set; }
         public string ProductName { get; set; }
+        public string ImagePath { get; set; }
 
         public ICollection<Menu> Menu { get; set; }
         public ICollection<Review> Review { get; set; }
