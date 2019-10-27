@@ -32,30 +32,7 @@
             </div>
             <div class="bbt-content">
                 <div class="bbt-img">
-                    @switch (Model.ProductId)
-                    {
-                        case 1:
-                            <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
-                            break;
-                        case 2:
-                            <img src="~/images/mango-delight.png" alt="mango-delight" />
-                            break;
-                        case 3:
-                            <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
-                            break;
-                        case 4:
-                            <img src="~/images/coffee-chill.png" alt="coffee-chill" />
-                            break;
-                        case 5:
-                            <img src="~/images/zen-matcha.png" alt="zen-matcha" />
-                            break;
-                        case 6:
-                            <img src="~/images/taro-basic.png" alt="taro-basic" />
-                            break;
-                        default:
-                            <div>Wrong Input</div>
-                        break;
-                    }
+                    <img src= "@Url.Content(Model.Product.ImagePath)" alt="Image" />
                 </div>
                 <div class="bbt-review">
                     <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
@@ -91,30 +68,7 @@
             </div>
             <div class="modal-bbt-content">
                 <div class="modal-bbt-img">
-                    @switch (Model.ProductId)
-                    {
-                        case 1:
-                            <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
-                            break;
-                        case 2:
-                            <img src="~/images/mango-delight.png" alt="mango-delight" />
-                            break;
-                        case 3:
-                            <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
-                            break;
-                        case 4:
-                            <img src="~/images/coffee-chill.png" alt="coffee-chill" />
-                            break;
-                        case 5:
-                            <img src="~/images/zen-matcha.png" alt="zen-matcha" />
-                            break;
-                        case 6:
-                            <img src="~/images/taro-basic.png" alt="taro-basic" />
-                            break;
-                        default:
-                            <div>Wrong Input</div>
-                        break;
-                    }
+                    <img src="@Url.Content(Model.Product.ImagePath)" alt="Image" />
                 </div>
                 <div>
                     <div class="modal-bbt-name">

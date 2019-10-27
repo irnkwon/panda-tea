@@ -109,6 +109,11 @@ namespace PandaTea.Models
                     .HasColumnType("numeric(18, 0)")
                     .ValueGeneratedOnAdd();
 
+                entity.Property(e => e.ImagePath)
+                    .HasColumnName("imagePath")
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.ProductName)
                     .IsRequired()
                     .HasColumnName("productName")

@@ -26,32 +26,9 @@
                 <a asp-action="Details" asp-route-id="@item.MenuId">
                     <div>
                         <div class="bbt-img">
-                            @switch (item.ProductId)
-                            {
-                                case 1:
-                                    <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
-                                    break;
-
-                                case 2:
-                                    <img src="~/images/mango-delight.png" alt="mango-delight" />
-                                    break;
-
-                                case 3:
-                                    <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
-                                    break;
-                                case 4:
-                                    <img src="~/images/coffee-chill.png" alt="coffee-chill" />
-                                    break;
-                                case 5:
-                                    <img src="~/images/zen-matcha.png" alt="zen-matcha" />
-                                    break;
-                                case 6:
-                                    <img src="~/images/taro-basic.png" alt="taro-basic" />
-                                    break;
-                                default:
-                                    <div>Wrong Input</div>
-                                break;
-                            }
+                            <div>
+                                <img src= "@Url.Content(item.Product.ImagePath)" alt="Image" />
+                             </div>
                         </div>
                         <div class="bbt-review">
                             <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
