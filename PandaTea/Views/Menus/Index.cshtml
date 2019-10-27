@@ -1,18 +1,21 @@
-﻿@* 
+﻿﻿@*
     Index.cshtml
-    
+
     PROG3050: Programming Microsoft Enterprise Applications
     Group 7
 
     Revision History
              Haeryun Kwon, 2019-10-21: Modified
+
 *@
 
-@model IEnumerable<PandaTea.Models.MenuModel>
+@model IEnumerable<PandaTea.Models.Menu>
+
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <div id="home-container">
@@ -59,32 +62,7 @@
                         </div>
                     </div>
                     <div class="bbt-name">
-                        @switch (item.ProductId)
-                        {
-                            case 1:
-                                <div>Strawberry Explosion</div>
-                                break;
-
-                            case 2:
-                                <div>Mango Delight</div>
-                                break;
-
-                            case 3:
-                                <div>Creamy Avocado</div>
-                                break;
-                            case 4:
-                                <div>Coffee Chill</div>
-                                break;
-                            case 5:
-                                <div>Zen Matcha</div>
-                                break;
-                            case 6:
-                                <div>Taro Basic</div>
-                                break;
-                            default:
-                                <div>Wrong Input</div>
-                            break;
-                        }
+                        @Html.DisplayFor(modelItem => item.Product.ProductName)
                     </div>
                 </a>
             </div>

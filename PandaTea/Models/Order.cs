@@ -1,4 +1,4 @@
-﻿/* StoreModel.cs
+﻿/* Order.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -9,20 +9,24 @@
  *                                   Added documentation comments and header comments
  *                                   Removed unnecessary imports
  */
+using System;
+
 namespace PandaTea.Models
 {
     /// <summary>
-    /// Model class for Store data
+    /// Model class for Order data
     /// </summary>
-    public partial class StoreModel
+    public partial class Order
     {
+        public decimal OrderId { get; set; }
+        public decimal UserId { get; set; }
+        public decimal MenuId { get; set; }
         public decimal StoreId { get; set; }
-        public string StoreName { get; set; }
-        public string Address { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
-        public string PostalCode { get; set; }
+        public int Quantity { get; set; }
+        public DateTime? DatePurchased { get; set; }
+
+        public Menu Menu { get; set; }
+        public Store Store { get; set; }
+        public User User { get; set; }
     }
 }

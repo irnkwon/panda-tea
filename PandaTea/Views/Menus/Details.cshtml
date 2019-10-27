@@ -1,4 +1,4 @@
-﻿@*
+﻿﻿@*
     Details.cshtml
 
     PROG3050: Programming Microsoft Enterprise Applications
@@ -6,45 +6,30 @@
 
     Revision History
              Haeryun Kwon, 2019-10-27: Modified
+
+
 *@
 
-@model PandaTea.Models.MenuModel
+
+@model PandaTea.Models.Menu
+
+
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <div id="home-details-container">
     <div class="bbt-container">
         <div>
             <div class="bbt-name">
-                @switch (Model.ProductId)
-                {
-                    case 1:
-                        <div>Strawberry Explosion</div>
-                        break;
-                    case 2:
-                        <div>Mango Delight</div>
-                        break;
-                    case 3:
-                        <div>Creamy Avocado</div>
-                        break;
-                    case 4:
-                        <div>Coffee Chill</div>
-                        break;
-                    case 5:
-                        <div>Zen Matcha</div>
-                        break;
-                    case 6:
-                        <div>Taro Basic</div>
-                        break;
-                    default:
-                        <div>Wrong Input</div>
-                    break;
-                }
+                @Html.DisplayFor(model => model.Product.ProductName)
             </div>
-            <div class="bbt-price">@Html.DisplayFor(m => m.Price)</div>
+            <div class="bbt-price">
+                @Html.DisplayFor(m => m.Price)
+            </div>
             <div class="bbt-content">
                 <div class="bbt-img">
                     @switch (Model.ProductId)
@@ -133,30 +118,7 @@
                 </div>
                 <div>
                     <div class="modal-bbt-name">
-                        @switch (Model.ProductId)
-                        {
-                            case 1:
-                                <div>Strawberry Explosion</div>
-                                break;
-                            case 2:
-                                <div>Mango Delight</div>
-                                break;
-                            case 3:
-                                <div>Creamy Avocado</div>
-                                break;
-                            case 4:
-                                <div>Coffee Chill</div>
-                                break;
-                            case 5:
-                                <div>Zen Matcha</div>
-                                break;
-                            case 6:
-                                <div>Taro Basic</div>
-                                break;
-                            default:
-                                <div>Wrong Input</div>
-                            break;
-                        }
+                        @Html.DisplayFor(model => model.Product.ProductName)
                     </div>
                     <div class="modal-bbt-details">
                         <div class="modal-size">
@@ -212,11 +174,11 @@
                 }
             });
             $(".cancel-btn").click(function () {
-                var _url = '@Url.Action("Index", "Menu")';
+                var _url = '@Url.Action("Index", "Menus")';
                 window.location.href = _url;
             });
             $(".back-btn").click(function () {
-                var _url = '@Url.Action("Index", "Menu")';
+                var _url = '@Url.Action("Index", "Menus")';
                 window.location.href = _url;
             });
             $(".modal-close").click(function () {

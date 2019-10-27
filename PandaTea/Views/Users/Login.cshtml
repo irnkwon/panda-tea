@@ -23,7 +23,7 @@
     $.ajax(
     {
       type: "POST",
-      url: '@Url.Action("Validate", "User")',
+      url: '@Url.Action("Validate", "Users")',
       data: {
         email: $('#email').val(),
         password: $('#password').val()
@@ -34,7 +34,7 @@
       success: function (result) {
         console.log(result);
         if (result.status == true) {
-          window.location.href = '@Url.Action("Index", "Menu")';
+          window.location.href = '@Url.Action("Index", "Menus")';
         }
         else {
           alert(result.message);

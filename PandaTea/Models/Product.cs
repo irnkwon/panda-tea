@@ -1,4 +1,4 @@
-﻿/* ProductModel.cs
+﻿/* Product.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -9,14 +9,26 @@
  *                                   Added documentation comments and header comments
  *                                   Removed unnecessary imports
  */
+using System;
+using System.Collections.Generic;
+
 namespace PandaTea.Models
 {
     /// <summary>
     /// Model class for Product data
     /// </summary>
-    public partial class ProductModel
+    public partial class Product
     {
+        public Product()
+        {
+            Menu = new HashSet<Menu>();
+            Review = new HashSet<Review>();
+        }
+
         public decimal ProductId { get; set; }
         public string ProductName { get; set; }
+
+        public ICollection<Menu> Menu { get; set; }
+        public ICollection<Review> Review { get; set; }
     }
 }

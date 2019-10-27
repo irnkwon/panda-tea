@@ -1,4 +1,4 @@
-﻿/* MenuModel.cs
+﻿/* Review.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -9,17 +9,24 @@
  *                                   Added documentation comments and header comments
  *                                   Removed unnecessary imports
  */
+using System;
+using System.Collections.Generic;
+
 namespace PandaTea.Models
 {
     /// <summary>
-    /// Model class for Menu data
+    /// Model class for Review data
     /// </summary>
-    public partial class MenuModel
+    public partial class Review
     {
-        public decimal MenuId { get; set; }
+        public decimal ReviewId { get; set; }
+        public decimal UserId { get; set; }
         public decimal ProductId { get; set; }
-        public string Size { get; set; }
-        public decimal? Price { get; set; }
-        public int? Calories { get; set; }
+        public decimal? Score { get; set; }
+        public string Text { get; set; }
+        public DateTime? DateReviewed { get; set; }
+
+        public Product Product { get; set; }
+        public User User { get; set; }
     }
 }

@@ -1,18 +1,21 @@
-﻿@* 
+﻿﻿@*
     Edit.cshtml
-    
+
     PROG3050: Programming Microsoft Enterprise Applications
     Group 7
 
     Revision History
              Haeryun Kwon, 2019-10-21: Modified
+
 *@
 
-@model PandaTea.Models.MenuModel
+@model PandaTea.Models.Menu
+
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <h2>Edit</h2>
@@ -26,7 +29,7 @@
             <input type="hidden" asp-for="MenuId" />
             <div class="form-group">
                 <label asp-for="ProductId" class="control-label"></label>
-                <input asp-for="ProductId" class="form-control" />
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
                 <span asp-validation-for="ProductId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,6 +58,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
