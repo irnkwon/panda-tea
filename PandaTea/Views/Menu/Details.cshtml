@@ -187,7 +187,7 @@
                 var quantity = $(".quantity-input").val();
                 $(".quantity-value").text(quantity);
 
-                var selectedSize = $("input[type='radio'][name='size']:checked");
+                var selectedSize = $("input:radio[name='size']:checked");
                 if (selectedSize.length > 0) {
                     selectedValue = selectedSize.val();
                     $(".size-value").text(selectedValue);
@@ -218,6 +218,17 @@
             $(".modal-close").click(function () {
                 $("#modal").css("display", "none");
             });
+        });
+        $('input:radio[name="size"]').change(function () {
+            if ($(this).val() == 'Small') {
+                $(".bbt-price").text("3.99");
+            }
+            if ($(this).val() == 'Medium') {
+                $(".bbt-price").text("4.49");
+            }
+            if ($(this).val() == 'Large') {
+                $(".bbt-price").text("4.99");
+            }
         });
     </script>
 }
