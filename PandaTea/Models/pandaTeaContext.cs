@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PandaTea.Models
 {
@@ -13,20 +15,18 @@ namespace PandaTea.Models
         {
         }
 
-        public virtual DbSet<MenuModel> MenuModel { get; set; }
-        public virtual DbSet<ProductModel> ProductModel { get; set; }
-        public virtual DbSet<ReviewModel> ReviewModel { get; set; }
-        public virtual DbSet<StoreModel> StoreModel { get; set; }
-        public virtual DbSet<OrderModel> OrderModel { get; set; }
-        public virtual DbSet<UserModel> UserModel { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Review> Review { get; set; }
+        public virtual DbSet<Store> Store { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MenuModel>(entity =>
+            modelBuilder.Entity<Menu>(entity =>
             {
-                entity.HasKey(e => e.MenuId);
-
-                entity.ToTable("menuTbl");
+                entity.ToTable("menu");
 
                 entity.Property(e => e.MenuId)
                     .HasColumnName("menuId")
@@ -46,13 +46,63 @@ namespace PandaTea.Models
                 entity.Property(e => e.Size)
                     .HasColumnName("size")
                     .HasMaxLength(10);
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Menu)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_menuTbl_productTbl");
             });
 
-            modelBuilder.Entity<ProductModel>(entity =>
+            modelBuilder.Entity<Order>(entity =>
             {
-                entity.HasKey(e => e.ProductId);
+                entity.ToTable("order");
 
-                entity.ToTable("productTbl");
+                entity.Property(e => e.OrderId)
+                    .HasColumnName("orderId")
+                    .HasColumnType("numeric(18, 0)")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.DatePurchased)
+                    .HasColumnName("datePurchased")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.MenuId)
+                    .HasColumnName("menuId")
+                    .HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.Property(e => e.StoreId)
+                    .HasColumnName("storeId")
+                    .HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.UserId)
+                    .HasColumnName("userId")
+                    .HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.Menu)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.MenuId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_order_menu");
+
+                entity.HasOne(d => d.Store)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.StoreId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_order_store");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_order_user");
+            });
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.ToTable("product");
 
                 entity.Property(e => e.ProductId)
                     .HasColumnName("productId")
@@ -65,11 +115,9 @@ namespace PandaTea.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ReviewModel>(entity =>
+            modelBuilder.Entity<Review>(entity =>
             {
-                entity.HasKey(e => e.ReviewId);
-
-                entity.ToTable("reviewTbl");
+                entity.ToTable("review");
 
                 entity.Property(e => e.ReviewId)
                     .HasColumnName("reviewId")
@@ -93,13 +141,23 @@ namespace PandaTea.Models
                 entity.Property(e => e.UserId)
                     .HasColumnName("userId")
                     .HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Review)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_review_product");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Review)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_review_user");
             });
 
-            modelBuilder.Entity<StoreModel>(entity =>
+            modelBuilder.Entity<Store>(entity =>
             {
-                entity.HasKey(e => e.StoreId);
-
-                entity.ToTable("storeTbl");
+                entity.ToTable("store");
 
                 entity.Property(e => e.StoreId)
                     .HasColumnName("storeId")
@@ -135,41 +193,9 @@ namespace PandaTea.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<OrderModel>(entity =>
+            modelBuilder.Entity<User>(entity =>
             {
-                entity.HasKey(e => e.OrderId);
-
-                entity.ToTable("orderTbl");
-
-                entity.Property(e => e.OrderId)
-                    .HasColumnName("orderId")
-                    .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.DatePurchased)
-                    .HasColumnName("datePurchased")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.MenuId)
-                    .HasColumnName("menuId")
-                    .HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.Quantity).HasColumnName("quantity");
-
-                entity.Property(e => e.StoreId)
-                    .HasColumnName("storeId")
-                    .HasColumnType("numeric(18, 0)");
-
-                entity.Property(e => e.UserId)
-                    .HasColumnName("userId")
-                    .HasColumnType("numeric(18, 0)");
-            });
-
-            modelBuilder.Entity<UserModel>(entity =>
-            {
-                entity.HasKey(e => e.UserId);
-
-                entity.ToTable("userTbl");
+                entity.ToTable("user");
 
                 entity.Property(e => e.UserId)
                     .HasColumnName("userId")

@@ -1,9 +1,72 @@
-﻿html, body {
-    margin: 0;
-    padding: 0;
+﻿/*
+    general.css
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-22: Modified
+*/
+
+/*
+    General 
+*/
+* {
     font-family: 'Lato', sans-serif;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 #content-container {
-    padding: 50px 0 0 350px;
+    padding-left: 350px;
+}
+
+input[type=number] {
+    transform: scale(1.2);
+    text-align: center;
+    font-size: 0.8em;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+.cart {
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.cart > img {
+    width: 50px;
+    height: auto;
+}
+
+/*
+    Button Theme
+*/
+#panda-btn, #panda-btn-2, #panda-btn-3 {
+    font-size: 15px;
+    width: 130px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+}
+
+#panda-btn-2 {
+    margin: 30px 0 0 15px;
+    background-color: grey;
+}
+
+#panda-btn-3 {
+    margin: 30px 0 0 15px;
+    color: #7F6791;
+    background-color: #FFFFFF;
+    border: 2px solid #7F6791;
 }

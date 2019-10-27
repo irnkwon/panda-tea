@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@* 
+    Layout.cshtml
+    
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-21: Modified
+*@
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,13 +29,13 @@
         </div>
 
         <div class="navbar-menu">
-            <a asp-area="" asp-controller="Menu" asp-action="Index">Home</a>
-            <a asp-area="" asp-controller="Order" asp-action="Index">Order</a>
-            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
-            <a asp-area="" asp-controller="Store" asp-action="Index">Store</a>
-            <a asp-area="" asp-controller="Review" asp-action="Index">Review</a>
-            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-            <input type="button" value="Login" onclick="location.href='@Url.Action("Login", "User")'" />
+            <a asp-area="" asp-controller="Menus" asp-action="Index">Home</a>
+            @*<a asp-area="" asp-controller="Home" asp-action="About">About</a>*@
+            <a asp-area="" asp-controller="Store" asp-action="Index">Place an Order</a>
+            <a asp-area="" asp-controller="Order" asp-action="Index">Purchase History</a>
+            <a asp-area="" asp-controller="Review" asp-action="Index">Reviews</a>
+            @*<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
+            <input type="button" value="Login" onclick="location.href='@Url.Action("Login", "Users")'" />
             <input type="button" value="Logout" onclick="Logout()">
 
             @*Added a TempData variable*@
@@ -36,6 +46,9 @@
     </div>
 
     <div id="content-container">
+        <div class="cart">
+            <img src="~/images/shopping-cart.png" alt="shopping-cart" />
+        </div>
         @RenderBody()
     </div>
 
@@ -67,14 +80,14 @@
         $.ajax(
         {
           type: "POST",
-          url: '@Url.Action("Logout", "User")',
+          url: '@Url.Action("Logout", "Users")',
           error: function (result) {
               alert("Failed to log out");
           },
           success: function (result) {
             console.log(result);
             if (result.status == true) {
-              window.location.href = '@Url.Action("Index", "Menu")';
+              window.location.href = '@Url.Action("Index", "Menus")';
             }
             else {
               alert(result.message);

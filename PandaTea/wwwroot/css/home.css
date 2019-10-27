@@ -1,21 +1,21 @@
-﻿#home-container {
+﻿/*
+    home.css
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-27: Modified
+*/
+
+#home-container {
     display: flex;
     flex-direction: column;
 }
 
-/*.reward-bar {
-    margin-top: 100px;
-}
-
-.reward-bar img {
-    width: 1160px;
-    height: 50px;
-}*/
-
 .bbt-container {
     display: flex;
     flex-wrap: wrap;
-    margin: 100px 0 0;
 }
 
 .bbt {
@@ -25,6 +25,11 @@
     height: 293px;
     padding: 30px 40px;
     margin: 0 20px 20px 0;
+}
+
+.bbt a {
+    color: black;
+    text-decoration: none;
 }
 
 .bbt div:first-child {
@@ -38,7 +43,7 @@
 
 .bbt-img img {
     width: 150px;
-    height: 250px;
+    height: 255px;
 }
 
 .bbt-review {
@@ -47,15 +52,129 @@
     padding-top: 20px;
 }
 
-.bbt-name {
+.bbt-name, .bbt-price, .bbt-name > div {
     font-family: 'Caveat', cursive !important;
-    font-size: 2em;
+    font-size: 1.4em;
     margin-top: 10px;
     text-align: center;
+}
+
+#home-details-container > .bbt-container > div > .bbt-name,
+.bbt-price {
+    font-weight: bold;
+}
+
+.bbt-price {
+    font-size: 1.8em !important;
+    margin-bottom: 15px;
 }
 
 .star, .star-filled {
     width: 32px;
     height: 32px;
     padding-bottom: 10px;
+}
+
+.bbt-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.bbt-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.size > input {
+    margin: 25px 10px 0 0;
+}
+
+.quantity {
+    margin-top: 1.5em;
+}
+
+.quantity > label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Modal */
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 150px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-heading {
+    font-family: 'Caveat', cursive !important;
+    font-size: 1.7em;
+    margin-bottom: 20px;
+    padding-left: 70px;
+}
+
+.modal-close {
+    width: 15px;
+    height: auto;
+    padding-left: 50px;
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    width: 27%;
+    margin: auto;
+    padding: 30px 10px;
+    border: 2px solid #7F6791;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-bbt-img > img {
+    width: 60px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.modal-content > .bbt-name {
+    margin-bottom: 20px;
+}
+
+.modal-bbt-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.modal-bbt-content {
+    display: flex;
+    align-items: center;
+}
+
+.modal-quantity {
+    margin-right: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-size {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-quantity > label, .modal-size > label {
+    margin-right: 5px;
 }

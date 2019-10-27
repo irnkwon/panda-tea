@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<form>
+    <div data-validate="Email is required">
+        <input type="text" name="email" id="email" placeholder="Email">
+    </div>
+    <div data-validate="Password is required">
+        <input type="password" name="password" id="password" placeholder="Password">
+    </div>
+    <div>
+        <input type="button" value="Login" onclick="Validate()">
+    </div>
+</form>
+
+<script>
+  function Validate() {
+    $.ajax(
+    {
+      type: "POST",
+      url: '@Url.Action("Validate", "Users")',
+      data: {
+        email: $('#email').val(),
+        password: $('#password').val()
+      },
+      error: function (result) {
+          alert("Failed to log In. Try Again!");
+      },
+      success: function (result) {
+        console.log(result);
+        if (result.status == true) {
+          window.location.href = '@Url.Action("Index", "Menus")';
+        }
+        else {
+          alert(result.message);
+        }
+      }
+    });
+  }
+</script>
+

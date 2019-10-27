@@ -1,0 +1,200 @@
+﻿﻿@*
+    Details.cshtml
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-10-27: Modified
+
+
+*@
+
+
+@model PandaTea.Models.Menu
+
+
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div id="home-details-container">
+    <div class="bbt-container">
+        <div>
+            <div class="bbt-name">
+                @Html.DisplayFor(model => model.Product.ProductName)
+            </div>
+            <div class="bbt-price">
+                @Html.DisplayFor(m => m.Price)
+            </div>
+            <div class="bbt-content">
+                <div class="bbt-img">
+                    @switch (Model.ProductId)
+                    {
+                        case 1:
+                            <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
+                            break;
+                        case 2:
+                            <img src="~/images/mango-delight.png" alt="mango-delight" />
+                            break;
+                        case 3:
+                            <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
+                            break;
+                        case 4:
+                            <img src="~/images/coffee-chill.png" alt="coffee-chill" />
+                            break;
+                        case 5:
+                            <img src="~/images/zen-matcha.png" alt="zen-matcha" />
+                            break;
+                        case 6:
+                            <img src="~/images/taro-basic.png" alt="taro-basic" />
+                            break;
+                        default:
+                            <div>Wrong Input</div>
+                        break;
+                    }
+                </div>
+                <div class="bbt-review">
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star.png" alt="star" class="star" />
+                </div>
+            </div>
+            <div class="bbt-details">
+                <div class="size">
+                    <input type="radio" name="size" value="Small" checked="checked" /> Small (300 cals)<br>
+                    <input type="radio" name="size" value="Medium" /> Medium (375 cals) + $0.50<br>
+                    <input type="radio" name="size" value="Large" /> Large (425 cals) + $0.50<br>
+                </div>
+                <div class="quantity">
+                    <label>Quantity</label>
+                    <input type="number" class="quantity-input" value="1" min="1" max="99" />
+                </div>
+            </div>
+            <div>
+                <button id="panda-btn" class="order-btn">Add to Order</button>
+                <button id="panda-btn-2" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div class="modal-content">
+            <div class="modal-heading">
+                Added to your order
+                <img src="~/images/close.png" alt="close-button" class="modal-close" />
+            </div>
+            <div class="modal-bbt-content">
+                <div class="modal-bbt-img">
+                    @switch (Model.ProductId)
+                    {
+                        case 1:
+                            <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
+                            break;
+                        case 2:
+                            <img src="~/images/mango-delight.png" alt="mango-delight" />
+                            break;
+                        case 3:
+                            <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
+                            break;
+                        case 4:
+                            <img src="~/images/coffee-chill.png" alt="coffee-chill" />
+                            break;
+                        case 5:
+                            <img src="~/images/zen-matcha.png" alt="zen-matcha" />
+                            break;
+                        case 6:
+                            <img src="~/images/taro-basic.png" alt="taro-basic" />
+                            break;
+                        default:
+                            <div>Wrong Input</div>
+                        break;
+                    }
+                </div>
+                <div>
+                    <div class="modal-bbt-name">
+                        @Html.DisplayFor(model => model.Product.ProductName)
+                    </div>
+                    <div class="modal-bbt-details">
+                        <div class="modal-size">
+                            <label>Size:</label>
+                            <div class="size-value"></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div class="modal-quantity">
+                                <label>Qty: </label>
+                                <div class="quantity-value"></div>
+                            </div>
+                            <div class="modal-price">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="panda-btn" class="back-btn">Back to Menu</button>
+                <button id="panda-btn-3">See My Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $(".order-btn").click(function(){
+                $("#modal").css("display", "block");
+
+                var quantity = $(".quantity-input").val();
+                $(".quantity-value").text(quantity);
+
+                var selectedSize = $("input:radio[name='size']:checked");
+                if (selectedSize.length > 0) {
+                    selectedValue = selectedSize.val();
+                    $(".size-value").text(selectedValue);
+                }
+
+                var totalPrice = 0;
+                if (selectedValue == "Small") {
+                    totalPrice = 3.99 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+                if (selectedValue == "Medium") {
+                    totalPrice = 4.49 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+                if (selectedValue == "Large") {
+                    totalPrice = 4.99 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+            });
+            $(".cancel-btn").click(function () {
+                var _url = '@Url.Action("Index", "Menus")';
+                window.location.href = _url;
+            });
+            $(".back-btn").click(function () {
+                var _url = '@Url.Action("Index", "Menus")';
+                window.location.href = _url;
+            });
+            $(".modal-close").click(function () {
+                $("#modal").css("display", "none");
+            });
+        });
+        $('input:radio[name="size"]').change(function () {
+            if ($(this).val() == 'Small') {
+                $(".bbt-price").text("3.99");
+            }
+            if ($(this).val() == 'Medium') {
+                $(".bbt-price").text("4.49");
+            }
+            if ($(this).val() == 'Large') {
+                $(".bbt-price").text("4.99");
+            }
+        });
+    </script>
+}
