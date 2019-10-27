@@ -166,4 +166,15 @@
 
 .modal-quantity {
     margin-right: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-size {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-quantity > label, .modal-size > label {
+    margin-right: 5px;
 }
