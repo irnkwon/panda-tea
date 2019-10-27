@@ -15,7 +15,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="home-details-container">
+<div id="home-details-container">s
     <div class="bbt-container">
         <div>
             <div class="bbt-name">
@@ -24,11 +24,9 @@
                     case 1:
                         <div>Strawberry Explosion</div>
                         break;
-
                     case 2:
                         <div>Mango Delight</div>
                         break;
-
                     case 3:
                         <div>Creamy Avocado</div>
                         break;
@@ -41,6 +39,9 @@
                     case 6:
                         <div>Taro Basic</div>
                         break;
+                    default:
+                        <div>Wrong Input</div>
+                    break;
                 }
             </div>
             <div class="bbt-price">@Html.DisplayFor(m => m.Price)</div>
@@ -51,11 +52,9 @@
                         case 1:
                             <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
                             break;
-
                         case 2:
                             <img src="~/images/mango-delight.png" alt="mango-delight" />
                             break;
-
                         case 3:
                             <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
                             break;
@@ -68,6 +67,9 @@
                         case 6:
                             <img src="~/images/taro-basic.png" alt="taro-basic" />
                             break;
+                        default:
+                            <div>Wrong Input</div>
+                        break;
                     }
                 </div>
                 <div class="bbt-review">
@@ -109,11 +111,9 @@
                         case 1:
                             <img src="~/images/strawberry-explosion.png" alt="strawberry-explosion" />
                             break;
-
                         case 2:
                             <img src="~/images/mango-delight.png" alt="mango-delight" />
                             break;
-
                         case 3:
                             <img src="~/images/creamy-avocado.png" alt="creamy-avocado" />
                             break;
@@ -126,6 +126,9 @@
                         case 6:
                             <img src="~/images/taro-basic.png" alt="taro-basic" />
                             break;
+                        default:
+                            <div>Wrong Input</div>
+                        break;
                     }
                 </div>
                 <div>
@@ -135,11 +138,9 @@
                             case 1:
                                 <div>Strawberry Explosion</div>
                                 break;
-
                             case 2:
                                 <div>Mango Delight</div>
                                 break;
-
                             case 3:
                                 <div>Creamy Avocado</div>
                                 break;
@@ -152,6 +153,9 @@
                             case 6:
                                 <div>Taro Basic</div>
                                 break;
+                            default:
+                                <div>Wrong Input</div>
+                            break;
                         }
                     </div>
                     <div class="modal-bbt-details">
