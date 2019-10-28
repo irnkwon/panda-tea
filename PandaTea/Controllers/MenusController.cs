@@ -1,4 +1,15 @@
-﻿using System;
+﻿/* OrderController.cs
+ * 
+ * PROG3050: Programming Microsoft Enterprise Applications
+ * Group 7
+ * 
+ * Revision History
+ *          Ji Hong Ahn, 2019-09-12: Created
+ *          Ji Hong Ahn, 2019-10-10: Refined codes
+ *                                   Added documentation comments and header comments
+ *  */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
