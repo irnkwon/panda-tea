@@ -89,7 +89,7 @@
             </div>
             <div>
                 <button id="panda-btn" class="back-btn">Back to Menu</button>
-                <button id="panda-btn-3" class="place-order-btn" onclick="location.href='@Url.Action("Create", "Orders")'">Place Order</button>
+                <button id="panda-btn-3" class="confirm-order-btn" onclick="location.href='@Url.Action("Create", "Orders")'">Go to Confirm Order</button>
             </div>
         </div>
     </div>
@@ -99,7 +99,7 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $(".place-order-btn").click(function () {
+            $(".confirm-order-btn").click(function () {
                 var _url = '@Url.Action("Create", "Orders")';
                 window.location.href = _url;
             });
