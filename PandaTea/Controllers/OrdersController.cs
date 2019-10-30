@@ -117,6 +117,9 @@ namespace PandaTea.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderId,UserId,MenuId,StoreId,Quantity,DatePurchased")] Order order)
         {
+            //won't need these once I can populate into the Orders/Create form...
+            order.UserId = Decimal.Parse(HttpContext.Session.GetString("UserId"));
+            order.Quantity = int.Parse(HttpContext.Session.GetString("Quantity"));
             if (ModelState.IsValid)
             {
                 _context.Add(order);

@@ -6,14 +6,11 @@
 
     Revision History
              Haeryun Kwon, 2019-10-27: Modified
-
-
+             Samantha Dang, 2019-10-30: Bring user to Orders/Create 
 *@
 
-
 @model PandaTea.Models.Menu
-
-
+@using Microsoft.AspNetCore.Http;
 
 @{
     ViewData["Title"] = "Details";
@@ -44,9 +41,9 @@
             </div>
             <div class="bbt-details">
                 <div class="size">
-                    <input type="radio" name="size" value="Small" checked="checked" /> Small (300 cals)<br>
-                    <input type="radio" name="size" value="Medium" /> Medium (375 cals) + $0.50<br>
-                    <input type="radio" name="size" value="Large" /> Large (425 cals) + $0.50<br>
+                    <input type="radio" name="size" value="S" checked="checked" /> Small (300 cals)<br>
+                    <input type="radio" name="size" value="M" /> Medium (375 cals) + $0.50<br>
+                    <input type="radio" name="size" value="L" /> Large (425 cals) + $0.50<br>
                 </div>
                 <div class="quantity">
                     <label>Quantity</label>
@@ -54,7 +51,7 @@
                 </div>
             </div>
             <div>
-                <button id="panda-btn" class="order-btn">Add to Order</button>
+                <button id="panda-btn" class="order-btn" onclick="StoreQuantity()">Add to Order</button>
                 <button id="panda-btn-2" class="cancel-btn">Cancel</button>
             </div>
         </div>
@@ -92,16 +89,21 @@
             </div>
             <div>
                 <button id="panda-btn" class="back-btn">Back to Menu</button>
-                <button id="panda-btn-3">See My Order</button>
+                <button id="panda-btn-3" class="place-order-btn" onclick="location.href='@Url.Action("Create", "Orders")'">Place Order</button>
             </div>
         </div>
     </div>
 </div>
 
+
 @section Scripts {
     <script>
-        $(document).ready(function(){
-            $(".order-btn").click(function(){
+        $(document).ready(function () {
+            $(".place-order-btn").click(function () {
+                var _url = '@Url.Action("Create", "Orders")';
+                window.location.href = _url;
+            });
+            $(".order-btn").click(function () {
                 $("#modal").css("display", "block");
 
                 var quantity = $(".quantity-input").val();
@@ -114,15 +116,15 @@
                 }
 
                 var totalPrice = 0;
-                if (selectedValue == "Small") {
+                if (selectedValue == "S") {
                     totalPrice = 3.99 * quantity;
                     $(".modal-price").text(totalPrice.toFixed(2));
                 }
-                if (selectedValue == "Medium") {
+                if (selectedValue == "M") {
                     totalPrice = 4.49 * quantity;
                     $(".modal-price").text(totalPrice.toFixed(2));
                 }
-                if (selectedValue == "Large") {
+                if (selectedValue == "L") {
                     totalPrice = 4.99 * quantity;
                     $(".modal-price").text(totalPrice.toFixed(2));
                 }
@@ -140,15 +142,36 @@
             });
         });
         $('input:radio[name="size"]').change(function () {
-            if ($(this).val() == 'Small') {
+            if ($(this).val() == 'S') {
                 $(".bbt-price").text("3.99");
             }
-            if ($(this).val() == 'Medium') {
+            if ($(this).val() == 'M') {
                 $(".bbt-price").text("4.49");
             }
-            if ($(this).val() == 'Large') {
+            if ($(this).val() == 'L') {
                 $(".bbt-price").text("4.99");
             }
         });
+        function StoreQuantity() {
+        $.ajax(
+        {
+            type: "POST",
+            url: '@Url.Action("StoreQuantity", "Orders")',
+            data: {
+                quantity: $("#quantity").val()
+            },
+            error: function (result) {
+                alert("Failed to add to order. Try Again!");
+            },
+            success: function (result) {
+                console.log(result);
+                if (result.status == true) {
+                }
+                else {
+                    alert(result.message);
+                }
+            }
+        });
+    }
     </script>
 }
