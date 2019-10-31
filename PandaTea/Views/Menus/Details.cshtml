@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div>
-                <button id="panda-btn" class="order-btn" onclick="StoreQuantity()">Add to Order</button>
+                <button id="panda-btn" class="order-btn" onclick="SaveOrder()">Add to Order</button>
                 <button id="panda-btn-2" class="cancel-btn">Cancel</button>
             </div>
         </div>
@@ -140,6 +140,48 @@
             $(".modal-close").click(function () {
                 $("#modal").css("display", "none");
             });
+            function SaveOrder() {
+            $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("StoreQuantity", "Orders")',
+                data: {
+                    quantity: $("#quantity").val()
+                },
+                error: function (result) {
+                    alert("Failed to add to order. Try Again!");
+                },
+                success: function (result) {
+                    console.log(result);
+                    if (result.status == true) {
+                    }
+                    else {
+                        alert(result.message);
+                    }
+                }
+            });
+            $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("CheckMenuItem", "Menus")',
+                data: {
+                    size: $("input:radio[name=size]:checked").val(),
+                    productId: "@Model.ProductId"
+                },
+                error: function (result) {
+                    alert("Failed to add to order. Try Again!");
+                },
+                success: function (result) {
+                    console.log(result);
+                    if (result.status == true) {
+                        $("#modal").css("display", "block");
+                    }
+                    else {
+                        alert(result.message);
+                    }
+                }
+            });
+            }
         });
         $('input:radio[name="size"]').change(function () {
             if ($(this).val() == 'S') {
@@ -150,26 +192,6 @@
             }
             if ($(this).val() == 'L') {
                 $(".bbt-price").text("4.99");
-            }
-        });
-        function StoreQuantity() {
-        $.ajax(
-        {
-            type: "POST",
-            url: '@Url.Action("StoreQuantity", "Orders")',
-            data: {
-                quantity: $("#quantity").val()
-            },
-            error: function (result) {
-                alert("Failed to add to order. Try Again!");
-            },
-            success: function (result) {
-                console.log(result);
-                if (result.status == true) {
-                }
-                else {
-                    alert(result.message);
-                }
             }
         });
     }

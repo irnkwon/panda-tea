@@ -42,6 +42,34 @@ namespace PandaTea.Controllers
             return View(await pandaTeaContext.ToListAsync());
         }
 
+        /// <summary>
+        /// Check user selection against possiblemenu items
+        /// </summary>
+        /// <param name="menu">MenuModel data to validate</param>
+        /// <returns>ActionResult with status and message</returns>
+        public ActionResult CheckMenuItem(Menu menu)
+        {
+            var menuModel = _context.Menu.Where(s => s.ProductId == menu.ProductId && s.Size == menu.Size);
+            var menuId = "";
+            //var qty = menu.qty;
+            if (menuModel.Any())
+            {
+                foreach (var item in menuModel.ToList())
+                {
+                    menuId = item.MenuId.ToString();
+                }
+
+                HttpContext.Session.SetString("MenuId", menuId);
+
+                return Json(new { status = true, message = "Check menu item successful: " + menu.MenuId });
+            }
+            else
+            {
+                return Json(new { status = false, message = "Check menu item failed" });
+            }
+
+        }
+
         // GET: Menus/Details/5
         public async Task<IActionResult> Details(decimal? id)
         {
