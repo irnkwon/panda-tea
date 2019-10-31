@@ -7,6 +7,7 @@
     Revision History
              Haeryun Kwon, 2019-10-27: Modified
              Samantha Dang, 2019-10-30: Bring user to Orders/Create 
+             Samantha Dang, 2019-10-31: SaveOrder Ajax to save order data
 *@
 
 @model PandaTea.Models.Menu
@@ -89,7 +90,7 @@
             </div>
             <div>
                 <button id="panda-btn" class="back-btn">Back to Menu</button>
-                <button id="panda-btn-3" class="confirm-order-btn" onclick="location.href='@Url.Action("Create", "Orders")'">Go to Confirm Order</button>
+                <button id="panda-btn-3" class="confirm-order-btn" onclick="location.href='@Url.Action("Create", "Orders")'">Confirm Order</button>
             </div>
         </div>
     </div>
