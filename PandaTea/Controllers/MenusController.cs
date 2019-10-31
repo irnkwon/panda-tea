@@ -60,7 +60,6 @@ namespace PandaTea.Controllers
                 }
                 
                 HttpContext.Session.SetString("MenuId", menuId);
-                ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
 
                 return Json(new { status = true, message = "Check menu item successful: " + menuId });
             }

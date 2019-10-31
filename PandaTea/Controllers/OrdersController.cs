@@ -101,7 +101,7 @@ namespace PandaTea.Controllers
         /// <returns>View</returns>
         public IActionResult Create()
         {
-            //ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId");
+            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", HttpContext.Session.GetString("MenuId"));
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreId");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
