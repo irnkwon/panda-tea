@@ -141,48 +141,49 @@
                 $("#modal").css("display", "none");
             });
             function SaveOrder() {
-            $.ajax(
-            {
-                type: "POST",
-                url: '@Url.Action("StoreQuantity", "Orders")',
-                data: {
-                    quantity: $("#quantity").val()
-                },
-                error: function (result) {
-                    alert("Failed to add to order. Try Again!");
-                },
-                success: function (result) {
-                    console.log(result);
-                    if (result.status == true) {
+                $.ajax(
+                {
+                    type: "POST",
+                    url:'@Url.Action("StoreQuantity", "Orders")',
+                    data: {
+                        quantity: $("#quantity").val()
+                    },
+                    error: function (result) {
+                        alert("Failed to add to order. Try Again!");
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        if (result.status == true) {
+                        }
+                        else {
+                            alert(result.message);
+                        }
                     }
-                    else {
-                        alert(result.message);
+                });
+                $.ajax(
+                {
+                    type: "POST",
+                    url: '@Url.Action("CheckMenuItem", "Menus")',
+                    data: {
+                        size: $("input:radio[name=size]:checked").val(),
+                        productId: "@Model.ProductId",
+                    },
+                    error: function (result) {
+                        alert("Failed to add to order. Try Again!");
+                    },
+                    success: function (result) {
+                        console.log(result);
+                        if (result.status == true) {
+                            $("#modal").css("display", "block");
+                        }
+                        else {
+                            alert(result.message);
+                        }
                     }
-                }
-            });
-            $.ajax(
-            {
-                type: "POST",
-                url: '@Url.Action("CheckMenuItem", "Menus")',
-                data: {
-                    size: $("input:radio[name=size]:checked").val(),
-                    productId: "@Model.ProductId"
-                },
-                error: function (result) {
-                    alert("Failed to add to order. Try Again!");
-                },
-                success: function (result) {
-                    console.log(result);
-                    if (result.status == true) {
-                        $("#modal").css("display", "block");
-                    }
-                    else {
-                        alert(result.message);
-                    }
-                }
-            });
-            }
-        });
+                });
+            };
+        }); 
+        
         $('input:radio[name="size"]').change(function () {
             if ($(this).val() == 'S') {
                 $(".bbt-price").text("3.99");
@@ -194,6 +195,5 @@
                 $(".bbt-price").text("4.99");
             }
         });
-    }
     </script>
 }
