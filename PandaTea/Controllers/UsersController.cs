@@ -10,6 +10,7 @@
  *                                   Added documentation comments and header comments
  *                                   Added Login, Logout, and Validate action
  */
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -215,7 +216,7 @@ namespace PandaTea.Controllers
         /// </summary>
         /// <param name="user">UserModel data to validate</param>
         /// <returns>ActionResult object with status and message</returns>
-        public ActionResult Validate(User user)
+        public JsonResult Validate(User user)
         {
             var userModel = _context.User.Where(s => s.Email == user.Email);
             string userId = "";
