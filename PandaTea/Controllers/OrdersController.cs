@@ -1,4 +1,4 @@
-﻿/* OrderController.cs
+﻿/* OrdersController.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -10,7 +10,7 @@
  *          Samantha Dang, 2019-10-23: Add user identification
  *          Samantha Dang, 2019-10-25: Sessions for items added to order (StoreQuantity, Create)
  *          Samantha Dang, 2019-10-31: Set the Order/Create values from Session Variables
- *  */
+ */
 using System;
 using System.Linq;
 using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿/* OrderController.cs
+﻿/* MenusController.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -7,8 +7,8 @@
  *          Ji Hong Ahn, 2019-09-12: Created
  *          Ji Hong Ahn, 2019-10-10: Refined codes
  *                                   Added documentation comments and header comments
- *          Samantha Dang, 2019-10-31: add CheckMenuItem function again
- *  */
+ * 
+ */
 
 using System;
 using System.Collections.Generic;
