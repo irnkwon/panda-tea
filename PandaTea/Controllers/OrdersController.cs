@@ -1,4 +1,4 @@
-﻿/* OrderController.cs
+﻿/* OrdersController.cs
  * 
  * PROG3050: Programming Microsoft Enterprise Applications
  * Group 7
@@ -9,7 +9,8 @@
  *                                   Added documentation comments and header comments
  *          Samantha Dang, 2019-10-23: Add user identification
  *          Samantha Dang, 2019-10-25: Sessions for items added to order (StoreQuantity, Create)
- *  */
+ *          Samantha Dang, 2019-10-31: Set the Order/Create values from Session Variables
+ */
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace PandaTea.Controllers
             else
             {
                 TempData["LoginRequiredMessage"] = "Please log in to view your orders.";
-                return RedirectToAction("Login", "User");
+                return RedirectToAction("Login", "Users");
             }
         }
 
@@ -101,7 +102,12 @@ namespace PandaTea.Controllers
         /// <returns>View</returns>
         public IActionResult Create()
         {
-            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId");
+            if (HttpContext.Session.GetString("UserId") == null)
+            {
+                TempData["LoginRequiredMessage"] = "Please log in to view place an order.";
+                return RedirectToAction("Login", "Users");
+            }
+            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", HttpContext.Session.GetString("MenuId"));
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreId");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
@@ -117,6 +123,9 @@ namespace PandaTea.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderId,UserId,MenuId,StoreId,Quantity,DatePurchased")] Order order)
         {
+            //won't need these once I can populate into the Orders/Create form...
+            order.UserId = Decimal.Parse(HttpContext.Session.GetString("UserId"));
+            order.Quantity = int.Parse(HttpContext.Session.GetString("Quantity"));
             if (ModelState.IsValid)
             {
                 _context.Add(order);

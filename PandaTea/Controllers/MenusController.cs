@@ -1,4 +1,16 @@
-﻿using System;
+﻿/* MenusController.cs
+ * 
+ * PROG3050: Programming Microsoft Enterprise Applications
+ * Group 7
+ * 
+ * Revision History
+ *          Ji Hong Ahn, 2019-09-12: Created
+ *          Ji Hong Ahn, 2019-10-10: Refined codes
+ *                                   Added documentation comments and header comments
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +41,34 @@ namespace PandaTea.Controllers
 
             var pandaTeaContext = _context.Menu.Include(m => m.Product);
             return View(await pandaTeaContext.ToListAsync());
+        }
+
+        /// <summary>
+        /// Check user selection against possiblemenu items
+        /// </summary>
+        /// <param name="menu">MenuModel data to validate</param>
+        /// <returns>ActionResult with status and message</returns>
+        public ActionResult CheckMenuItem(Menu menu)
+        {
+            var menuModel = _context.Menu.Where(s => s.ProductId == menu.ProductId && s.Size == menu.Size);
+            var menuId = "";
+            //var qty = menu.qty;
+            if (menuModel.Any())
+            {
+                foreach (var item in menuModel.ToList())
+                {
+                    menuId = item.MenuId.ToString();
+                }
+                
+                HttpContext.Session.SetString("MenuId", menuId);
+
+                return Json(new { status = true, message = "Check menu item successful: " + menuId });
+            }
+            else
+            {
+                return Json(new { status = false, message = "Check menu item failed" });
+            }
+
         }
 
         // GET: Menus/Details/5
