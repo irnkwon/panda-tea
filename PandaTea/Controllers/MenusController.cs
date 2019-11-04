@@ -9,9 +9,6 @@
  *                                   Added documentation comments and header comments
  * 
  */
-
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +28,10 @@ namespace PandaTea.Controllers
             _context = context;
         }
 
-        // GET: Menus
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             string message = HttpContext.Session.GetString("FirstName") == null ?

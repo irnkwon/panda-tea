@@ -37,9 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\Privacy.cshtml" />
-    <Content Remove="Views\Home\About.cshtml" />
-    <Content Remove="Views\Home\Index.cshtml" />
-    <Content Remove="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
   </ItemGroup>
 </Project>
