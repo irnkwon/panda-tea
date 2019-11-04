@@ -246,7 +246,7 @@ namespace PandaTea.Controllers
         /// Verifies if Order data with the given OrderId exists
         /// </summary>
         /// <param name="id">OrderId to verify</param>
-        /// <returns>true if a Order exists</returns>
+        /// <returns>true if an Order exists</returns>
         private bool OrderExists(decimal id)
         {
             return _context.Order.Any(e => e.OrderId == id);
