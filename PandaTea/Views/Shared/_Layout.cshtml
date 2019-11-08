@@ -30,11 +30,8 @@
 
         <div class="navbar-menu">
             <a asp-area="" asp-controller="Menus" asp-action="Index">Home</a>
-            @*<a asp-area="" asp-controller="Home" asp-action="About">About</a>*@
-            <a asp-area="" asp-controller="Store" asp-action="Index">Place an Order</a>
-            <a asp-area="" asp-controller="Order" asp-action="Index">Purchase History</a>
-            <a asp-area="" asp-controller="Review" asp-action="Index">Reviews</a>
-            @*<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>*@
+            <a asp-area="" asp-controller="Orders" asp-action="Index">Purchase History</a>
+            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
             <input type="button" value="Login" onclick="location.href='@Url.Action("Login", "Users")'" />
             <input type="button" value="Logout" onclick="Logout()">
 
@@ -46,9 +43,6 @@
     </div>
 
     <div id="content-container">
-        <div class="cart">
-            <img src="~/images/shopping-cart.png" alt="shopping-cart" />
-        </div>
         @RenderBody()
     </div>
 

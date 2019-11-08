@@ -9,9 +9,6 @@
  *                                   Added documentation comments and header comments
  * 
  */
-
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +28,10 @@ namespace PandaTea.Controllers
             _context = context;
         }
 
-        // GET: Menus
+        /// <summary>
+        /// Returns View for Index action
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             string message = HttpContext.Session.GetString("FirstName") == null ?
@@ -71,7 +71,11 @@ namespace PandaTea.Controllers
 
         }
 
-        // GET: Menus/Details/5
+        /// <summary>
+        /// Returns View for Details action
+        /// </summary>
+        /// <param name="id">MenuId to select</param>
+        /// <returns>View with Menu data</returns>
         public async Task<IActionResult> Details(decimal? id)
         {
             if (id == null)
@@ -90,16 +94,21 @@ namespace PandaTea.Controllers
             return View(menu);
         }
 
-        // GET: Menus/Create
+        /// <summary>
+        /// Returns View for Create action
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Create()
         {
             ViewData["ProductId"] = new SelectList(_context.Product, "ProductId", "ProductName");
             return View();
         }
 
-        // POST: Menus/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Inserts Menu data to the database
+        /// </summary>
+        /// <param name="menu">Menu data to insert</param>
+        /// <returns>View with Menu data</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MenuId,ProductId,Size,Price,Calories")] Menu menu)
@@ -114,7 +123,11 @@ namespace PandaTea.Controllers
             return View(menu);
         }
 
-        // GET: Menus/Edit/5
+        /// <summary>
+        /// Returns View for Edit action
+        /// </summary>
+        /// <param name="id">MenuId to update/param>
+        /// <returns>View with Menu data</returns>
         public async Task<IActionResult> Edit(decimal? id)
         {
             if (id == null)
@@ -131,9 +144,12 @@ namespace PandaTea.Controllers
             return View(menu);
         }
 
-        // POST: Menus/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Updates Menu data with a MenuId to the database
+        /// </summary>
+        /// <param name="id">MenuId to update</param>
+        /// <param name="menu">Menu data to update</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(decimal id, [Bind("MenuId,ProductId,Size,Price,Calories")] Menu menu)
@@ -167,7 +183,11 @@ namespace PandaTea.Controllers
             return View(menu);
         }
 
-        // GET: Menus/Delete/5
+        /// <summary>
+        /// Returns View for Delete action
+        /// </summary>
+        /// <param name="id">MenuId to delete</param>
+        /// <returns>View with Menu data</returns>
         public async Task<IActionResult> Delete(decimal? id)
         {
             if (id == null)
@@ -186,7 +206,11 @@ namespace PandaTea.Controllers
             return View(menu);
         }
 
-        // POST: Menus/Delete/5
+        /// <summary>
+        /// Deletes Menu data with a given MenuId from the database
+        /// </summary>
+        /// <param name="id">MenuId to delete</param>
+        /// <returns>IActionResult to return to Index action</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(decimal id)
@@ -197,6 +221,11 @@ namespace PandaTea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Verifies if Menu data with the given OrderId exists
+        /// </summary>
+        /// <param name="id">MenuId to verify</param>
+        /// <returns>true if a Menu exists</returns>
         private bool MenuExists(decimal id)
         {
             return _context.Menu.Any(e => e.MenuId == id);
