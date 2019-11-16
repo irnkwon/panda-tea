@@ -30,8 +30,6 @@ namespace PandaTea.Controllers
         /// <returns></returns>
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
