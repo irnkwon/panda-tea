@@ -1,7 +1,102 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@*
+    About.cshtml
 
-<p>Use this area to provide additional information.</p>
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Jaden Ji Hong Ahn, 2019-11-16: Created
+*@
+
+@{
+    ViewData["Title"] = "About Panda Tea";
+}
+
+<div id="home-container">
+    <div>
+        <h2>@ViewData["Title"]</h2>
+        <img src="~/images/panda-tea-waterloo.png" alt="Panda Tea Waterloo" width="400" />
+        <p>Panda Tea is a new local bubble tea shop that opened in Waterloo in Summer 2019.</p>
+        <p>We offer a variety of bubble tea flavors using real fruit blends and freshly made tapioca pearls.</p>
+    </div>
+
+    <h3>Developers</h3>
+    <div class="bbt-container">
+        <div class="bbt">
+            <div>
+                <div class="bbt-img">
+                    <div>
+                        <img src="~/images/irene.png" alt="Irene Kwon" />
+                    </div>
+                </div>
+                <div class="bbt-review">
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                </div>
+            </div>
+            <div class="bbt-name">
+                Irene Kwon
+            </div>
+        </div>
+        <div class="bbt">
+            <div>
+                <div class="bbt-img">
+                    <div>
+                        <img src="~/images/samantha.png" alt="Samantha Dang" />
+                    </div>
+                </div>
+                <div class="bbt-review">
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                </div>
+            </div>
+            <div class="bbt-name">
+                Samantha Dang
+            </div>
+        </div>
+        <div class="bbt">
+            <div>
+                <div class="bbt-img">
+                    <div>
+                        <img src="~/images/dennis.png" alt="Dennis Nay" />
+                    </div>
+                </div>
+                <div class="bbt-review">
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                </div>
+            </div>
+            <div class="bbt-name">
+                Dennis Nay
+            </div>
+        </div>
+        <div class="bbt">
+            <div>
+                <div class="bbt-img">
+                    <div>
+                        <img src="~/images/jaden.png" alt="Jaden Ahn" />
+                    </div>
+                </div>
+                <div class="bbt-review">
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                    <img src="~/images/star-filled.png" alt="star-filled" class="star-filled" />
+                </div>
+            </div>
+            <div class="bbt-name">
+                Jaden Ahn
+            </div>
+        </div>
+    </div>
+</div>
