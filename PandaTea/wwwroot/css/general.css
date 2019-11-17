@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-22: Modified
+             Haeryun Kwon, 2019-11-16: Modified
 */
 
 /*
@@ -21,7 +21,9 @@ html, body {
 }
 
 #content-container {
-    padding-left: 350px;
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
 }
 
 input[type=number] {
@@ -32,19 +34,6 @@ input[type=number] {
 
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
-}
-
-.cart {
-    height: 150px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 50px;
-}
-
-.cart > img {
-    width: 50px;
-    height: auto;
 }
 
 /*
@@ -69,4 +58,14 @@ input[type=number]::-webkit-inner-spin-button {
     color: #7F6791;
     background-color: #FFFFFF;
     border: 2px solid #7F6791;
+}
+
+#login-btn {
+    font-size: 15px;
+    width: 90px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+    border-radius: 2px;
 }

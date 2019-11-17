@@ -9,9 +9,10 @@
 */
 
 #navbar-container {
-    display: flex;
-    position: fixed;
     width: 100%;
+    position: fixed;
+    display: flex;
+    padding: 50px;
 }
 
 .logo {
@@ -19,28 +20,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
 }
 
 .logo img {
     width: 250px;
 }
 
-.navbar-menu a, .navbar-menu partial {
-    font-size: 1.5em;
-    padding-bottom: 20px;
-    text-decoration: none;
+.navbar-menu {
+    width: 75%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.login-btn {
-    color: #2C2E39 !important;
-    width: 90px;
-    height: 25px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid white;
-    background: #F3F3F5;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 50px;
+.navbar-menu a, .navbar-menu partial {
+    text-decoration: none;
+    color: #000000;
+}
+
+.navbar-menu-details {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
