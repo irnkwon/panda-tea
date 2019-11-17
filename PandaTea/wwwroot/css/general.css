@@ -69,3 +69,13 @@ input[type=number]::-webkit-inner-spin-button {
     border: none;
     border-radius: 2px;
 }
+
+#details-btn {
+    font-size: 15px;
+    width: 110px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+    border-radius: 2px;
+}

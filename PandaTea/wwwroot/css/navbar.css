@@ -12,7 +12,8 @@
     width: 100%;
     position: fixed;
     display: flex;
-    padding: 50px;
+    padding: 30px 50px;
+    background-color: #FFFFFF;
 }
 
 .logo {

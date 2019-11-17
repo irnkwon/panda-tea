@@ -48,5 +48,6 @@
     <Content Remove="Views\Home\About.cshtml" />
     <Content Remove="Views\Home\Contact.cshtml" />
     <Content Remove="Views\Home\Privacy.cshtml" />
+    <Content Remove="wwwroot\css\order.cs" />
   </ItemGroup>
 </Project>

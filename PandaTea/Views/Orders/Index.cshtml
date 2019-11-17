@@ -5,6 +5,7 @@
 
     Revision History
              Samantha Dang, 2019-10-31: Hide User information
+             Haeryun Kwon, 2019-11-16: Modified
 *@
 
 @model IEnumerable<PandaTea.Models.Order>
@@ -14,51 +15,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatePurchased)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Menu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StoreId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DatePurchased)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MenuId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StoreId)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<!-- Quantity, DatePurchased, MenuId, StoreId -->
+<div id="order-container">
+    <h1>Purchase History</h1>
+    <h2>2019</h2>
+    <h3>November</h3>
+    <div class="line"></div>
+    <div class="history-box" style="display: flex; flex-direction: row;">
+        <div class="history-box-content">
+            <div style="margin-bottom: 20px; color: #989898; font-weight: bold;">
+                November 16, 2019
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 10px;">
+                <img src="../images/location.png" style="width: 7%; padding-right: 10px;" />
+                <div>Panda Tea, Waterloo, ON N1A 2B3</div>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <img src="../images/money.png" style="width: 7%; padding-right: 10px;" />
+                <div>Order Total: $4.51</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <input id="details-btn" type="button" value="View Details" />
+        </div>
+    </div>
+    <h3>October</h3>
+    <div class="line"></div>
+    <div class="history-box">
+        November 16, 2019
+    </div>
+</div>
