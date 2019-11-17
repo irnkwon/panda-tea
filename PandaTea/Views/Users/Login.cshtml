@@ -1,12 +1,19 @@
-﻿
+﻿@*  Login.cshtml
+
+    PROG3050: Programming Microsoft Enterprise Applications
+    Group 7
+
+    Revision History
+             Haeryun Kwon, 2019-11-16: Modified
+*@
+
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
-
-<form>
+<div id="login-container">
+    <div id="heading">Login</div>
     <div id="tempdata">
         <font>@TempData["LoginRequiredMessage"]</font>
     </div>
@@ -19,7 +26,7 @@
     <div>
         <input type="button" value="Login" onclick="Validate()">
     </div>
-</form>
+</div>
 
 <script>
   function Validate() {

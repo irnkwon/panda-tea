@@ -1,4 +1,4 @@
-﻿@*  Create.cshtml
+﻿@*  Index.cshtml
 
     PROG3050: Programming Microsoft Enterprise Applications
     Group 7
@@ -17,31 +17,99 @@
 
 <!-- Quantity, DatePurchased, MenuId, StoreId -->
 <div id="order-container">
-    <h1>Purchase History</h1>
-    <h2>2019</h2>
-    <h3>November</h3>
-    <div class="line"></div>
-    <div class="history-box" style="display: flex; flex-direction: row;">
-        <div class="history-box-content">
-            <div style="margin-bottom: 20px; color: #989898; font-weight: bold;">
-                November 16, 2019
+    <div id="heading">Purchase History</div>
+    <div>
+        <div id="sub-heading">2019</div>
+        <h4>November</h4>
+
+        <div class="line"></div>
+        <div class="history-box">
+            <div class="history-box-content">
+                <div class="date">November 16, 2019</div>
+                <div class="location">
+                    <img src="../images/location.png" />
+                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
+                </div>
+                <div class="order-total">
+                    <img src="../images/money.png" />
+                    <div>Order Total: $4.51</div>
+                </div>
             </div>
-            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 10px;">
-                <img src="../images/location.png" style="width: 7%; padding-right: 10px;" />
-                <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-            </div>
-            <div style="display: flex; flex-direction: row; align-items: center;">
-                <img src="../images/money.png" style="width: 7%; padding-right: 10px;" />
-                <div>Order Total: $4.51</div>
+            <div class="details-btn-content">
+                <input id="details-btn" type="button" value="View Details" />
             </div>
         </div>
-        <div style="display: flex; align-items: center;">
-            <input id="details-btn" type="button" value="View Details" />
+
+        <h4 style="margin-top: 50px;">October</h4>
+
+        <div class="line"></div>
+        <div class="history-box">
+            <div class="history-box-content">
+                <div class="date">October 27, 2019</div>
+                <div class="location">
+                    <img src="../images/location.png" />
+                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
+                </div>
+                <div class="order-total">
+                    <img src="../images/money.png" />
+                    <div>Order Total: $14.66</div>
+                </div>
+            </div>
+            <div class="details-btn-content">
+                <input id="details-btn" type="button" value="View Details" />
+            </div>
+        </div>
+
+        <div class="history-box" style="margin-top: 20px;">
+            <div class="history-box-content">
+                <div class="date">October 11, 2019</div>
+                <div class="location">
+                    <img src="../images/location.png" />
+                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
+                </div>
+                <div class="order-total">
+                    <img src="../images/money.png" />
+                    <div>Order Total: $14.66</div>
+                </div>
+            </div>
+            <div class="details-btn-content">
+                <input id="details-btn" type="button" value="View Details" />
+            </div>
         </div>
     </div>
-    <h3>October</h3>
-    <div class="line"></div>
-    <div class="history-box">
-        November 16, 2019
+
+    <div id="history-modal">
+        <div class="history-modal-content">
+            <div class="history-modal-heading">
+                October 11, 2019
+                <img src="~/images/close.png" alt="close-button" class="modal-close" />
+            </div>
+            <div class="modal-bbt-content">
+            </div>
+
+            <div class="modal-history-box" style="margin-top: 20px;">
+                <div class="history-box-content">
+                    <div id="small-title">Strawberry Explosion</div>
+                    <div>Size: Large</div>
+                    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                        <div>Quantity: 1</div>
+                        <div>Unit Price: FREE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () { 
+            $("#details-btn").click(function () {
+                $("#history-modal").css("display", "block");
+            });
+        });
+        $(".modal-close").click(function () {
+            $("#history-modal").css("display", "none");
+        });
+    </script>
+}

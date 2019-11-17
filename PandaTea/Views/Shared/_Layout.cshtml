@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-16: Added order.css
+             Haeryun Kwon, 2019-11-16: Added order.css and about.css
 *@
 
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/order.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/about.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
 </head>
@@ -33,8 +34,9 @@
                 <a asp-area="" asp-controller="Menus" asp-action="Index">Home</a>
                 <a asp-area="" asp-controller="Orders" asp-action="Index">Purchase History</a>
                 <a asp-area="" asp-controller="Home" asp-action="About">About</a>
-                <input id="login-btn"type="button" value="Login" onclick="location.href='@Url.Action("Login", "Users")'" />
-                <!-- <input type="button" value="Logout" onclick="Logout()"> -->
+                <input id="login-btn" class="login" type="button" value="Login"
+                       onclick="location.href='@Url.Action("Login", "Users")'" />
+                <input id="login-btn" class="logout" type="button" value="Logout" onclick="Logout()">
             </div>
         </div>
     </div>
@@ -44,9 +46,7 @@
         <font color="white">@TempData["Message"]</font>
     </div>
 
-    <div id="content-container">
-        @RenderBody()
-    </div>
+    <div>@RenderBody()</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -83,7 +83,7 @@
           success: function (result) {
             console.log(result);
             if (result.status == true) {
-              window.location.href = '@Url.Action("Index", "Menus")';
+                window.location.href = '@Url.Action("Index", "Menus")';
             }
             else {
               alert(result.message);

@@ -6,21 +6,20 @@
 
     Revision History
              Jaden Ji Hong Ahn, 2019-11-16: Created
+             Haeryun Kwon, 2019-11-16: Modified
 *@
 
 @{
-    ViewData["Title"] = "About Panda Tea";
+    ViewData["Title"] = "About Us";
 }
 
-<div id="home-container">
-    <div>
-        <h2>@ViewData["Title"]</h2>
-        <img src="~/images/panda-tea-waterloo.png" alt="Panda Tea Waterloo" width="400" />
-        <p>Panda Tea is a new local bubble tea shop that opened in Waterloo in Summer 2019.</p>
-        <p>We offer a variety of bubble tea flavors using real fruit blends and freshly made tapioca pearls.</p>
-    </div>
+<div id="about-container">
+    <div id="heading">@ViewData["Title"]</div>
+    <img src="~/images/panda-tea-waterloo.png" alt="Panda Tea Waterloo" style="width: 50%" />
+    <p>Panda Tea is a new local bubble tea shop that opened in Waterloo in Summer 2019.</p>
+    <p>We offer a variety of bubble tea flavors using real fruit blends and freshly made tapioca pearls.</p>
 
-    <h3>Developers</h3>
+    <div id="heading">Team</div>
     <div class="bbt-container">
         <div class="bbt">
             <div>
