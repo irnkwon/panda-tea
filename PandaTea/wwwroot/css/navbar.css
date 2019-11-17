@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-16: Modified
+             Haeryun Kwon, 2019-11-17: MODIFIED
 */
 
 #navbar-container {
@@ -28,7 +28,7 @@
 }
 
 .navbar-menu {
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -44,4 +44,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 100px;
+}
+
+.mobile-menu-details {
+    display: none;
+    margin-right: 100px;
+}
+
+.mobile-menu-details img {
+    width: 45px;
+}
+
+@media only screen and (max-width: 950px) {
+    .navbar-menu-details {
+        display: none;
+    }
+    .mobile-menu-details {
+        display: block;
+    }
 }
