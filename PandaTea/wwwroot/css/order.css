@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-16: Created
+             Haeryun Kwon, 2019-11-17: MODIFIED
 */
 
 .line {
@@ -57,13 +57,13 @@
     align-items: center;
 }
 
-/* Modal */
+/* Modal for Purchase History Page */
 
 #history-modal {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 150px;
+    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
@@ -72,10 +72,17 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-.history-modal-heading {
+.modal-date {
+    text-align: center;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+.modal-close-content {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 10%;
 }
 
 .history-modal-content {
@@ -84,7 +91,7 @@
     width: 50%;
     height: 60%;
     margin: auto;
-    padding: 30px 10px;
+    padding: 60px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,11 +99,36 @@
 
 .modal-history-box {
     background-color: #FFFFFF;
-    width: 55%;
-    height: 15%;
+    width: 65%;
+    height: 35%;
     border-radius: 6px;
     padding: 20px 30px;
     display: flex;
-    flex-direction: row;
     box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
+    margin-top: 20px;
 }
+
+#history-modal .history-box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#history-modal .last-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5%;
+    text-align: right;
+    height: 25%;
+    align-self: flex-end;
+    margin-right: 15%;
+}
+

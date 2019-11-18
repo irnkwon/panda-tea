@@ -16,6 +16,7 @@
 }
 
 <!-- Quantity, DatePurchased, MenuId, StoreId -->
+
 <div id="order-container">
     <div id="heading">Purchase History</div>
     <div>
@@ -78,24 +79,42 @@
         </div>
     </div>
 
+    <!-- Modal for Purchase History Page -->
+
     <div id="history-modal">
         <div class="history-modal-content">
-            <div class="history-modal-heading">
-                October 11, 2019
+            <div class="modal-close-content">
                 <img src="~/images/close.png" alt="close-button" class="modal-close" />
             </div>
+            <div class="modal-date">October 11, 2019</div>
             <div class="modal-bbt-content">
             </div>
 
-            <div class="modal-history-box" style="margin-top: 20px;">
+            <div class="modal-history-box">
                 <div class="history-box-content">
                     <div id="small-title">Strawberry Explosion</div>
                     <div>Size: Large</div>
-                    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                    <div class="last-row">
                         <div>Quantity: 1</div>
                         <div>Unit Price: FREE</div>
                     </div>
                 </div>
+            </div>
+            <div class="modal-history-box">
+                <div class="history-box-content">
+                    <div id="small-title">Mango Delight</div>
+                    <div>Size: Small</div>
+                    <div class="last-row">
+                        <div>Quantity: 1</div>
+                        <div>Unit Price: $3.99</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">
+                <div id="small-title">Items(2): $3.99</div> 
+                <div id="small-title">GST/HST: $0.52</div>
+                <div id="mid-title">Order Total: $4.51</div>
             </div>
         </div>
     </div>
