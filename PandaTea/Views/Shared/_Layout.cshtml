@@ -5,91 +5,95 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-21: Modified
+             Haeryun Kwon, 2019-11-17: MODIFIED
 *@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PandaTea</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - PandaTea</title>
 
-    <link rel="stylesheet" href="~/css/general.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
-    @*<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />*@
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="navbar-container" role="navigation">
-        <div class="logo">
-            <img src="~/images/logo.png" alt="logo" />
-        </div>
-
-        <div class="navbar-menu">
-            <a asp-area="" asp-controller="Menus" asp-action="Index">Home</a>
-            <a asp-area="" asp-controller="Orders" asp-action="Index">Purchase History</a>
-            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
-            <input type="button" value="Login" onclick="location.href='@Url.Action("Login", "Users")'" />
-            <input type="button" value="Logout" onclick="Logout()">
-
-            @*Added a TempData variable*@
-            <div id="tempdata">
-                <font color="white">@TempData["Message"]</font>
+        <link rel="stylesheet" href="~/css/general.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/order.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/about.css" asp-append-version="true" />
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="navbar-container" role="navigation">
+            <div class="logo" onclick="location.href='@Url.Action("Index", "Menus")'">
+                <img src="~/images/logo.png" alt="logo" />
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-menu-details">
+                    <a asp-area="" asp-controller="Menus" asp-action="Index">Home</a>
+                    <a asp-area="" asp-controller="Orders" asp-action="Index">Purchase History</a>
+                    <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    <input id="login-btn" class="login" type="button" value="Login"
+                           onclick="location.href='@Url.Action("Login", "Users")'" />
+                    <input id="login-btn" class="logout" type="button" value="Logout" onclick="Logout()">
+                </div>
+                <div class="mobile-menu-details">
+                    <img src="../images/hamburger.png" alt="mobile-menu" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="content-container">
-        @RenderBody()
-    </div>
+        @*Added a TempData variable*@
+        <div id="tempdata">
+            <font color="white">@TempData["Message"]</font>
+        </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+        <div>@RenderBody()</div>
 
-    @RenderSection("Scripts", required: false)
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
 
-    <script>
-      function Logout() {
-        $.ajax(
-        {
-          type: "POST",
-          url: '@Url.Action("Logout", "Users")',
-          error: function (result) {
-              alert("Failed to log out");
-          },
-          success: function (result) {
-            console.log(result);
-            if (result.status == true) {
-              window.location.href = '@Url.Action("Index", "Menus")';
-            }
-            else {
-              alert(result.message);
-            }
+        @RenderSection("Scripts", required: false)
+
+        <script>
+          function Logout() {
+            $.ajax(
+            {
+              type: "POST",
+              url: '@Url.Action("Logout", "Users")',
+              error: function (result) {
+                  alert("Failed to log out");
+              },
+              success: function (result) {
+                console.log(result);
+                if (result.status == true) {
+                    window.location.href = '@Url.Action("Index", "Menus")';
+                }
+                else {
+                  alert(result.message);
+
+                }
+              }
+            });
           }
-        });
-      }
-    </script>
-
-</body>
+        </script>
+    </body>
 </html>

@@ -5,16 +5,12 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-27: Modified
+             Haeryun Kwon, 2019-11-16: Modified
 */
-
-#home-container {
-    display: flex;
-    flex-direction: column;
-}
 
 .bbt-container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -124,12 +120,6 @@
     font-size: 1.7em;
     margin-bottom: 20px;
     padding-left: 70px;
-}
-
-.modal-close {
-    width: 15px;
-    height: auto;
-    padding-left: 50px;
 }
 
 .modal-content {

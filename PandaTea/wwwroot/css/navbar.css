@@ -5,14 +5,15 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-21: Modified
+             Haeryun Kwon, 2019-11-17: MODIFIED
 */
 
 #navbar-container {
+    width: 100%;
     position: fixed;
-    background-color: #2C2E39;
-    width: 300px;
-    height: 100vh;
+    display: flex;
+    padding: 30px 50px;
+    background-color: #FFFFFF;
 }
 
 .logo {
@@ -20,7 +21,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
+}
+
+.logo:hover {
+   cursor: pointer;
 }
 
 .logo img {
@@ -28,27 +32,41 @@
 }
 
 .navbar-menu {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    padding: 70px 0 0 50px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .navbar-menu a, .navbar-menu partial {
-    color: #FFFFFF;
-    font-size: 1.5em;
-    padding-bottom: 20px;
     text-decoration: none;
+    color: #000000;
 }
 
-.login-btn {
-    color: #2C2E39 !important;
-    width: 90px;
-    height: 25px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid white;
-    background: #F3F3F5;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 50px;
+.navbar-menu-details {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.mobile-menu-details {
+    display: none;
+    margin-right: 100px;
+}
+
+.mobile-menu-details img {
+    width: 35px;
+}
+
+@media only screen and (max-width: 950px) {
+
+    .navbar-menu-details {
+        display: none;
+    }
+
+    .mobile-menu-details {
+        display: block;
+    }
 }

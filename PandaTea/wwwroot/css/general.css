@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-10-22: Modified
+             Haeryun Kwon, 2019-11-17: MODIFIED
 */
 
 /*
@@ -20,8 +20,21 @@ html, body {
     padding: 0;
 }
 
-#content-container {
-    padding-left: 350px;
+#home-container, #login-container {
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-container, #order-container {
+    padding-top: 180px;
+    background-color: #F9F9FB;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input[type=number] {
@@ -34,17 +47,29 @@ input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
 }
 
-.cart {
-    height: 150px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 50px;
+/*
+    Font Size
+*/
+#heading {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
 }
 
-.cart > img {
-    width: 50px;
-    height: auto;
+#sub-heading {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+#mid-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#small-title {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /*
@@ -57,6 +82,7 @@ input[type=number]::-webkit-inner-spin-button {
     color: #FFFFFF;
     background-color: #7F6791;
     border: none;
+    cursor: pointer;
 }
 
 #panda-btn-2 {
@@ -69,4 +95,42 @@ input[type=number]::-webkit-inner-spin-button {
     color: #7F6791;
     background-color: #FFFFFF;
     border: 2px solid #7F6791;
+}
+
+#login-btn {
+    font-size: 15px;
+    width: 90px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.login {
+    display: block;
+}
+
+.logout {
+    display: none;
+}
+
+#details-btn {
+    font-size: 15px;
+    width: 110px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* Modal */
+
+.modal-close {
+    width: 20px;
+    height: auto;
+    cursor: pointer;
 }
