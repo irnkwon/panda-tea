@@ -25,11 +25,12 @@
         {
             <div class="history-box">
                 <div class="history-box-content">
-                    <div class="date">@Html.DisplayFor(modelItem => item.DatePurchased)</div>
+                    <div class="date">@item.DatePurchased</div>
                     <div>
-                        <div id="small-title">@Html.DisplayFor(modelItem => item.Menu.Product.ProductName)</div>
-                        <div>Size: Large</div>
-                        <div>Quantity: @Html.DisplayFor(modelItem => item.Quantity)</div>
+                        <div id="small-title">@item.Menu.Product.ProductName</div>
+                        <div>Size: @item.Menu.Size</div>
+                        <div>Quantity: @item.Quantity</div>
+                        <div>Unit Price: $@item.Menu.Price</div>
                     </div>
                     <div class="location">
                         <img src="../images/location.png" />
