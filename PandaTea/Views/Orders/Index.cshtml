@@ -5,7 +5,8 @@
 
     Revision History
              Samantha Dang, 2019-10-31: Hide User information
-             Haeryun Kwon, 2019-11-17: Modified
+             Haeryun Kwon, 2019-11-18: Modified
+             Ji Hong Ahn, 2019-11-18: Bind model for index page
 *@
 
 @model IEnumerable<PandaTea.Models.Order>
@@ -20,109 +21,38 @@
 <div id="order-container">
     <div id="heading">Purchase History</div>
     <div>
-        <div id="sub-heading">2019</div>
-        <h4>November</h4>
-
-        <div class="line"></div>
-        <div class="history-box">
-            <div class="history-box-content">
-                <div class="date">November 16, 2019</div>
-                <div class="location">
-                    <img src="../images/location.png" />
-                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-                </div>
-                <div class="order-total">
-                    <img src="../images/money.png" />
-                    <div>Order Total: $4.51</div>
-                </div>
-            </div>
-            <div class="details-btn-content">
-                <input id="details-btn" type="button" value="View Details" />
-            </div>
-        </div>
-
-        <h4 style="margin-top: 50px;">October</h4>
-
-        <div class="line"></div>
-        <div class="history-box">
-            <div class="history-box-content">
-                <div class="date">October 27, 2019</div>
-                <div class="location">
-                    <img src="../images/location.png" />
-                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-                </div>
-                <div class="order-total">
-                    <img src="../images/money.png" />
-                    <div>Order Total: $14.66</div>
-                </div>
-            </div>
-            <div class="details-btn-content">
-                <input id="details-btn" type="button" value="View Details" />
-            </div>
-        </div>
-
-        <div class="history-box" style="margin-top: 20px;">
-            <div class="history-box-content">
-                <div class="date">October 11, 2019</div>
-                <div class="location">
-                    <img src="../images/location.png" />
-                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-                </div>
-                <div class="order-total">
-                    <img src="../images/money.png" />
-                    <div>Order Total: $14.66</div>
-                </div>
-            </div>
-            <div class="details-btn-content">
-                <input id="details-btn" type="button" value="View Details" />
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for Purchase History Page -->
-
-    <div id="history-modal">
-        <div class="history-modal-content">
-            <div class="modal-close-content">
-                <img src="~/images/close.png" alt="close-button" class="modal-close" />
-            </div>
-            <div class="modal-date">October 11, 2019</div>
-            <div class="modal-bbt-content">
-            </div>
-
-            <div class="modal-history-box">
+        @foreach (var item in Model)
+        {
+            <div class="history-box">
                 <div class="history-box-content">
-                    <div id="small-title">Strawberry Explosion</div>
-                    <div>Size: Large</div>
-                    <div class="last-row">
-                        <div>Quantity: 1</div>
-                        <div>Unit Price: FREE</div>
+                    <div class="date">@item.DatePurchased</div>
+                    <div>
+                        <div id="small-title">@item.Menu.Product.ProductName</div>
+                        <div>Size: @item.Menu.Size</div>
+                        <div>Quantity: @item.Quantity</div>
+                        <div>Unit Price: $@item.Menu.Price</div>
+                    </div>
+                    <div class="location">
+                        <img src="../images/location.png" />
+                        <div>@item.Store.StoreName, @item.Store.State, @item.Store.PostalCode</div>
+                    </div>
+                    <div class="order-total">
+                        <img src="../images/money.png" />
+                        @{
+                            var orderTotal = item.Menu.Price * item.Quantity;
+                            <div>Order Total: $@orderTotal</div>
+                        }
+
                     </div>
                 </div>
             </div>
-            <div class="modal-history-box">
-                <div class="history-box-content">
-                    <div id="small-title">Mango Delight</div>
-                    <div>Size: Small</div>
-                    <div class="last-row">
-                        <div>Quantity: 1</div>
-                        <div>Unit Price: $3.99</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="summary">
-                <div id="small-title">Items(2): $3.99</div> 
-                <div id="small-title">GST/HST: $0.52</div>
-                <div id="mid-title">Order Total: $4.51</div>
-            </div>
-        </div>
+        }
     </div>
 </div>
 
 @section Scripts {
     <script>
-        $(document).ready(function () { 
+        $(document).ready(function () {
             $("#details-btn").click(function () {
                 $("#history-modal").css("display", "block");
             });

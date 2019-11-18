@@ -10,6 +10,7 @@
  *          Samantha Dang, 2019-10-23: Add user identification
  *          Samantha Dang, 2019-10-25: Sessions for items added to order (StoreQuantity, Create)
  *          Samantha Dang, 2019-10-31: Set the Order/Create values from Session Variables
+ *          Ji Hong Ahn, 2019-11-18: Modified models for Index action
  */
 using System;
 using System.Linq;
@@ -44,7 +45,13 @@ namespace PandaTea.Controllers
             if (HttpContext.Session.GetString("UserId") != null)
             {
                 decimal userId = Decimal.Parse(HttpContext.Session.GetString("UserId"));
-                return View(await _context.Order.Where(o => o.UserId == userId).ToListAsync());
+                var pandaTeaContext = _context.Order
+                    .Include(s => s.Store)
+                    .Include(m => m.Menu)
+                    .ThenInclude(p => p.Product)
+                    .Where(u => u.UserId == userId)
+                    .OrderByDescending(o => o.DatePurchased);
+                return View(await pandaTeaContext.ToListAsync());
             }
             else
             {
