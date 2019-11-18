@@ -5,31 +5,33 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-17: MODIFIED
+             Haeryun Kwon, 2019-11-18: MODIFIED
 */
-
-.line {
-    width: 50px;
-    border: 2px solid #2C2E39;
-    border-radius: 2px;
-    margin-bottom: 30px;
-}
 
 .history-box {
     background-color: #FFFFFF;
     width: 530px;
-    height: 100px;
+    height: 200px;
     border-radius: 6px;
     padding: 30px 50px;
     display: flex;
     flex-direction: row;
     box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
+    margin: 20px 0;
 }
 
 .history-box-content .date {
     margin-bottom: 20px;
     color: #989898;
     font-weight: bold;
+}
+
+.history-box-content > div:nth-child(2) {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .location {
@@ -49,86 +51,3 @@
     flex-direction: row;
     align-items: center;
 }
-
-.details-btn-content {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-/* Modal for Purchase History Page */
-
-#history-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-date {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.modal-close-content {
-    display: flex;
-    align-self: flex-end;
-    margin-right: 10%;
-}
-
-.history-modal-content {
-    background: #F9F9FB;
-    border-radius: 6px;
-    width: 50%;
-    height: 60%;
-    margin: auto;
-    padding: 60px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modal-history-box {
-    background-color: #FFFFFF;
-    width: 65%;
-    height: 35%;
-    border-radius: 6px;
-    padding: 20px 30px;
-    display: flex;
-    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
-    margin-top: 20px;
-}
-
-#history-modal .history-box-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-}
-
-#history-modal .last-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.summary {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 5%;
-    text-align: right;
-    height: 25%;
-    align-self: flex-end;
-    margin-right: 15%;
-}
-
