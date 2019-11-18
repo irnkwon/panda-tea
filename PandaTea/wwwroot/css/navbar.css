@@ -23,6 +23,10 @@
     align-items: center;
 }
 
+.logo:hover {
+   cursor: pointer;
+}
+
 .logo img {
     width: 250px;
 }
@@ -53,13 +57,15 @@
 }
 
 .mobile-menu-details img {
-    width: 45px;
+    width: 35px;
 }
 
 @media only screen and (max-width: 950px) {
+
     .navbar-menu-details {
         display: none;
     }
+
     .mobile-menu-details {
         display: block;
     }
