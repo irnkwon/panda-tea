@@ -8,8 +8,10 @@
  *          Ji Hong Ahn, 2019-10-10: Renamed model classes
  *                                   Added documentation comments and header comments
  *                                   Removed unnecessary imports
+ *          Ji Hong Ahn, 2019-11-18: Applied DisplayFormat annotation for DatePurchased
  */
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PandaTea.Models
 {
@@ -23,6 +25,7 @@ namespace PandaTea.Models
         public decimal MenuId { get; set; }
         public decimal StoreId { get; set; }
         public int Quantity { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MMMM dd, yyyy}")]
         public DateTime? DatePurchased { get; set; }
 
         public Menu Menu { get; set; }

@@ -6,6 +6,7 @@
     Revision History
              Samantha Dang, 2019-10-31: Hide User information
              Haeryun Kwon, 2019-11-18: Modified
+             Ji Hong Ahn, 2019-11-18: Bind model for index page
 *@
 
 @model IEnumerable<PandaTea.Models.Order>
@@ -20,68 +21,37 @@
 <div id="order-container">
     <div id="heading">Purchase History</div>
     <div>
-        <div class="history-box">
-            <div class="history-box-content">
-                <div class="date">November 16, 2019</div>
-                <div>
-                    <div id="small-title">Strawberry Explosion</div>
-                    <div>Size: Large</div>
-                    <div>Quantity: 1</div>
-                </div>
-                <div class="location">
-                    <img src="../images/location.png" />
-                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-                </div>
-                <div class="order-total">
-                    <img src="../images/money.png" />
-                    <div>Order Total: $4.51</div>
-                </div>
-            </div>
-        </div>
+        @foreach (var item in Model)
+        {
+            <div class="history-box">
+                <div class="history-box-content">
+                    <div class="date">@Html.DisplayFor(modelItem => item.DatePurchased)</div>
+                    <div>
+                        <div id="small-title">@Html.DisplayFor(modelItem => item.Menu.Product.ProductName)</div>
+                        <div>Size: Large</div>
+                        <div>Quantity: @Html.DisplayFor(modelItem => item.Quantity)</div>
+                    </div>
+                    <div class="location">
+                        <img src="../images/location.png" />
+                        <div>@item.Store.StoreName, @item.Store.State, @item.Store.PostalCode</div>
+                    </div>
+                    <div class="order-total">
+                        <img src="../images/money.png" />
+                        @{
+                            var orderTotal = item.Menu.Price * item.Quantity;
+                            <div>Order Total: $@orderTotal</div>
+                        }
 
-        <div class="history-box">
-            <div class="history-box-content">
-                <div class="date">October 29, 2019</div>
-                <div>
-                    <div id="small-title">Strawberry Explosion</div>
-                    <div>Size: Large</div>
-                    <div>Quantity: 1</div>
-                </div>
-                <div class="location">
-                    <img src="../images/location.png" />
-                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-                </div>
-                <div class="order-total">
-                    <img src="../images/money.png" />
-                    <div>Order Total: $4.51</div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="history-box">
-            <div class="history-box-content">
-                <div class="date">October 11, 2019</div>
-                <div>
-                    <div id="small-title">Strawberry Explosion</div>
-                    <div>Size: Large</div>
-                    <div>Quantity: 1</div>
-                </div>
-                <div class="location">
-                    <img src="../images/location.png" />
-                    <div>Panda Tea, Waterloo, ON N1A 2B3</div>
-                </div>
-                <div class="order-total">
-                    <img src="../images/money.png" />
-                    <div>Order Total: $4.51</div>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>
 
 @section Scripts {
     <script>
-        $(document).ready(function () { 
+        $(document).ready(function () {
             $("#details-btn").click(function () {
                 $("#history-modal").css("display", "block");
             });
