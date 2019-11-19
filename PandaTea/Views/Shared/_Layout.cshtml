@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-17: MODIFIED
+             Haeryun Kwon, 2019-11-19: MODIFIED
 *@
 
 <!DOCTYPE html>
@@ -25,8 +25,12 @@
     </head>
     <body>
         <div id="navbar-container" role="navigation">
-            <div class="logo" onclick="location.href='@Url.Action("Index", "Menus")'">
-                <img src="~/images/logo.png" alt="logo" />
+            <div class="logo">
+                <img src="~/images/logo.png" alt="logo" onclick="location.href='@Url.Action("Index", "Menus")'" />
+                <div class="mobile-menu-details">
+                    <img src="../images/hamburger.png" alt="mobile-menu" class="hamburger" />
+                    <img src="../images/menu-close.png" alt="mobile-menu" class="menu-close" />
+                </div>
             </div>
             <div class="navbar-menu">
                 <div class="navbar-menu-details">
@@ -37,9 +41,6 @@
                            onclick="location.href='@Url.Action("Login", "Users")'" />
                     <input id="login-btn" class="logout" type="button" value="Logout" onclick="Logout()">
                 </div>
-                <div class="mobile-menu-details">
-                    <img src="../images/hamburger.png" alt="mobile-menu" />
-                </div>
             </div>
         </div>
 
@@ -48,7 +49,7 @@
             <font color="white">@TempData["Message"]</font>
         </div>
 
-        <div>@RenderBody()</div>
+        <div id="content-container">@RenderBody()</div>
 
         <environment include="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -74,6 +75,20 @@
         @RenderSection("Scripts", required: false)
 
         <script>
+        $(document).ready(function () {
+
+            $(".hamburger").click(function () {
+                $(".navbar-menu").css("display", "flex");
+                $(".hamburger").css("display", "none");
+                $(".menu-close").css("display", "flex");
+            });
+            $(".menu-close").click(function () {
+                $(".navbar-menu").css("display", "none");
+                $(".hamburger").css("display", "flex");
+                $(".menu-close").css("display", "none");
+            });
+        });
+
           function Logout() {
             $.ajax(
             {
