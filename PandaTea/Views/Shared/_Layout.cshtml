@@ -87,6 +87,16 @@
                 $(".hamburger").css("display", "flex");
                 $(".menu-close").css("display", "none");
             });
+            $(window).resize(function () {
+                if (window.innerWidth > 850) {
+                    $(".navbar-menu").css("display", "flex");
+                }
+                else {
+                    $(".navbar-menu").css("display", "none");
+                    $(".hamburger").css("display", "flex");
+                    $(".menu-close").css("display", "none");
+                }
+            })
         });
 
           function Logout() {
