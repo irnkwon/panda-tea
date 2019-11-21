@@ -5,6 +5,7 @@
 
     Revision History
              Samantha Dang, 2019-10-31: Set the default values to user input
+             Haeryun kwon, 2019-11-21: Added Tempdata for authentication
 *@
 
 @model PandaTea.Models.Order
@@ -13,6 +14,7 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData.Keep("Auth");
 }
 
 <h2>Create</h2>
