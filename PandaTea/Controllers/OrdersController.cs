@@ -119,8 +119,8 @@ namespace PandaTea.Controllers
             var menuId = Decimal.Parse(HttpContext.Session.GetString("MenuId"));
             var productId = Decimal.Parse(HttpContext.Session.GetString("ProductId"));
 
-            //ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId");
-            ViewData["MenuId"] = new SelectList(_context.Menu.Include(p => p.Product).Where(u => u.ProductId == productId), "MenuId", "ProductName");
+            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
+            //ViewData["MenuId"] = new SelectList(_context.Menu.Include(p => p.Product).Where(u => u.ProductId == productId), "MenuId", "ProductName");
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreName");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
