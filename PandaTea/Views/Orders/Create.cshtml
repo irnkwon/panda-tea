@@ -27,14 +27,9 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="order-item" hidden>
                     <input asp-for="UserId" class="form-control" value="@Context.Session.GetString("UserId")" hidden />
-                </div>
-                <div class="order-item" hidden>
                     <select asp-for="MenuId" asp-items="ViewBag.MenuId" hidden></select>
-                </div>
-                <div class="order-item" hidden>
                     <input asp-for="DatePurchased" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace(' ', 'T')" hidden />
                 </div>
-
                 <div class="order-item">
                     <img src="@Url.Content(ViewBag.ProductImagePath)" class="order-img" alt="Bubble tea image" />
                 </div>
@@ -42,10 +37,12 @@
                     <div id="small-title">@ViewBag.ProductName</div>
                 </div>
                 <div class="order-item">
-                    <div>Size: @ViewBag.Size</div>
+                    <div>Size:</div>
+                    <div>@ViewBag.Size</div>
                 </div>
                 <div class="order-item">
-                    <div>Unit Price: @ViewBag.UnitPrice</div>
+                    <div>Unit Price:</div>
+                    <div>@ViewBag.UnitPrice</div>
                 </div>
                 <div class="order-item">
                     <div>Pick up at this Store:</div>
