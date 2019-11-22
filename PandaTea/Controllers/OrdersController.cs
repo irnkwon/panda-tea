@@ -115,12 +115,24 @@ namespace PandaTea.Controllers
                 TempData["LoginRequiredMessage"] = "Please log in to view place an order.";
                 return RedirectToAction("Login", "Users");
             }
-
             var menuId = Decimal.Parse(HttpContext.Session.GetString("MenuId"));
             var productId = Decimal.Parse(HttpContext.Session.GetString("ProductId"));
+            var unitPrice = Decimal.Parse(HttpContext.Session.GetString("UnitPrice"));
+            var size = HttpContext.Session.GetString("Size");
+            
+            ViewData["UnitPrice"] = unitPrice;
+            ViewData["Size"] = size;
+            ViewData["ProductId"] = productId;
 
-            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
-            //ViewData["MenuId"] = new SelectList(_context.Menu.Include(p => p.Product).Where(u => u.ProductId == productId), "MenuId", "ProductName");
+            var pandaTeaContext = _context.Order
+                    .Include(s => s.Store)
+                    .Include(m => m.Menu)
+                    .ThenInclude(p => p.Product.ProductName);
+            var test = _context.Product.Include(s => s.Menu).Where(u => u.ProductId == productId);
+
+            ViewData["MenuId"] = new SelectList(test, "ProductId", "ProductName", productId);
+            //ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
+            //ViewData["MenuId"] = new SelectList(pandaTeaContext, "MenuId", "ProductName", menuId);
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreName");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
