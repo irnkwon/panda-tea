@@ -59,8 +59,9 @@ namespace PandaTea.Controllers
                 {
                     menuId = item.MenuId.ToString();
                 }
-                
+
                 HttpContext.Session.SetString("MenuId", menuId);
+                HttpContext.Session.SetString("ProductId", (menu.ProductId).ToString());
 
                 return Json(new { status = true, message = "Check menu item successful: " + menuId });
             }
