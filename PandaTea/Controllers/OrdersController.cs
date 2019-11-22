@@ -123,7 +123,6 @@ namespace PandaTea.Controllers
             ViewData["MenuId"] = new SelectList(_context.Menu.Include(p => p.Product).Where(u => u.ProductId == productId), "MenuId", "ProductName");
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreName");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
-            var test = ViewBag.MenuId;
             return View();
         }
 
