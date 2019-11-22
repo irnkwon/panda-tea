@@ -9,6 +9,7 @@
  *          Ji Hong Ahn, 2019-10-10: Refined codes
  *                                   Added documentation comments and header comments
  *                                   Added Login, Logout, and Validate action
+ *          Haeryun Kwon, 2019-11-21: Added Tempdata for Authentication
  */
 using System;
 using System.Linq;
@@ -208,6 +209,8 @@ namespace PandaTea.Controllers
             HttpContext.Session.Remove("UserId");
             HttpContext.Session.Remove("FirstName");
             RedirectToAction("Index", "Menus");
+            TempData["Auth"] = "LoggedOut";
+
             return Json(new { status = true, message = "Logout Successful" });
         }
 
@@ -233,6 +236,8 @@ namespace PandaTea.Controllers
 
                     HttpContext.Session.SetString("UserId", userId);
                     HttpContext.Session.SetString("FirstName", firstName);
+
+                    TempData["Auth"] = "LoggedIn";
 
                     return Json(new { status = true, message = "Logged In" });
                 }

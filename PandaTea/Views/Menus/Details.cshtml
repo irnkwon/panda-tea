@@ -8,6 +8,7 @@
              Haeryun Kwon, 2019-10-27: Modified
              Samantha Dang, 2019-10-30: Bring user to Orders/Create 
              Samantha Dang, 2019-10-31: SaveOrder Ajax to save order data
+             Haeryun kwon, 2019-11-21: Added Tempdata for authentication
 *@
 
 @model PandaTea.Models.Menu
@@ -16,6 +17,7 @@
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData.Keep("Auth");
 
 }
 

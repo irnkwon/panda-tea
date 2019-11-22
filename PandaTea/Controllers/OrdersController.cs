@@ -11,7 +11,7 @@
  *          Samantha Dang, 2019-10-25: Sessions for items added to order (StoreQuantity, Create)
  *          Samantha Dang, 2019-10-31: Set the Order/Create values from Session Variables
  *          Ji Hong Ahn, 2019-11-18: Modified models for Index action
- *          Samantha Dang, 2019-11-21: Updatied Create method so View includes user friendly values
+ *          Samantha Dang, 2019-11-21: Updated Create method so View includes user friendly values
  */
 using System;
 using System.Linq;
