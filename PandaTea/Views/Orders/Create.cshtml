@@ -7,6 +7,7 @@
              Samantha Dang, 2019-10-31: Set the default values to user input
              Samantha Dang, 2019-11-21: Adjusted frontend
              Haeryun Kwon, 2019-11-21: Added Tempdata for authentication
+             Haeryun Kwon, 2019-11-22: Adjusted frontend
 *@
 
 @model PandaTea.Models.Order
@@ -18,11 +19,10 @@
     TempData.Keep("Auth");
 }
 
-
-<div id="order-container">
+<div id="order-confirm-container">
     <div id="heading">Confirm Order</div>
     <div>
-        <div class="details-box">
+        <div class="confirm-details-box">
             <form asp-action="Create" class="order-form">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="order-item" hidden>
@@ -36,13 +36,14 @@
                 </div>
 
                 <div class="order-item">
-                    <div>Drink:</div>
+                    <div>Drink Name:</div>
                     <select asp-items="ViewBag.ProductId"></select>
-
                 </div>
                 <div class="order-item">
                     <div>Size:</div>
                     <div>@ViewBag.Size</div>
+                </div>
+                <div class="order-item">
                     <div>Unit Price:</div>
                     <div>@ViewBag.UnitPrice</div>
                 </div>
@@ -57,7 +58,12 @@
                 </div>
                 <div class="order-item">
                     <div>Order Total:</div>
-                    <div class="modal-orderTotal"></div>
+                    <div class="modal-orderTotal">
+                    @{
+                        var orderTotal = ViewBag.UnitPrice * Convert.ToInt32(Context.Session.GetString("Quantity"));
+                        <div>$@orderTotal</div>
+                    }
+                    </div>
                 </div>
                 <div class="order-item">
                     <input type="submit" value="Send Order" class="confirm-btn" />

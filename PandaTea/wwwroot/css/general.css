@@ -5,7 +5,7 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-21: MODIFIED
+             Haeryun Kwon, 2019-11-22: MODIFIED
 */
 
 /*
@@ -27,7 +27,7 @@ html, body {
     align-items: center;
 }
 
-#about-container, #order-container {
+#about-container, #order-container, #order-confirm-container {
     padding-top: 180px;
     background-color: #F9F9FB;
     width: 100%;
@@ -35,6 +35,10 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#order-confirm-container {
+    height: 100vh;
 }
 
 input[type=number] {

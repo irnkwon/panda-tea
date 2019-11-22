@@ -5,8 +5,8 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-18: MODIFIED
              Samantha Dang, 2019-11-21: Modified for Orders/Create page
+             Haeryun Kwon, 2019-11-22: Modified for Orders/Create page
 */
 
 .history-box {
@@ -72,7 +72,7 @@
  /* Orders/Create */
 
 .order-form {
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -85,16 +85,19 @@
     width: 100%;
     justify-content: center;
 }
+
 .order-item div, .order-item select  {
     margin: 1%;
     padding: 1%;
     width: 167px; 
 }
+
 .order-item input {
     margin: 1%;
     padding: 1%;
     width: 125px;
 }
+
 .order-item .confirm-btn {
     font-size: 15px;
     width: 120px;
@@ -115,4 +118,16 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
+}
+
+.confirm-details-box {
+    background-color: #FFFFFF;
+    width: 530px;
+    height: 350px;
+    border-radius: 6px;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
+    margin: 20px 0;
 }
