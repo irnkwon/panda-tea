@@ -52,15 +52,35 @@ namespace PandaTea.Controllers
         {
             var menuModel = _context.Menu.Where(s => s.ProductId == menu.ProductId && s.Size == menu.Size);
             var menuId = "";
-            //var qty = menu.qty;
+
             if (menuModel.Any())
             {
                 foreach (var item in menuModel.ToList())
                 {
                     menuId = item.MenuId.ToString();
                 }
-                
+
                 HttpContext.Session.SetString("MenuId", menuId);
+                HttpContext.Session.SetString("ProductId", (menu.ProductId).ToString());
+                HttpContext.Session.SetString("Size", (menu.Size).ToString());
+                if(menu.Size == "S")
+                {
+                    menu.Price = decimal.Parse("3.99");
+                }
+                else if (menu.Size == "M")
+                {
+                    menu.Price = decimal.Parse("4.49");
+                }
+                else if (menu.Size == "L")
+                {
+                    menu.Price = decimal.Parse("4.99");
+                }
+                else
+                {
+                    return Json(new { status = false, message = "Check menu item failed" });
+                }
+
+                HttpContext.Session.SetString("UnitPrice", (menu.Price).ToString());
 
                 return Json(new { status = true, message = "Check menu item successful: " + menuId });
             }

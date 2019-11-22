@@ -5,7 +5,8 @@
     Group 7
 
     Revision History
-             Haeryun Kwon, 2019-11-18: MODIFIED
+             Samantha Dang, 2019-11-21: Modified for Orders/Create page
+             Haeryun Kwon, 2019-11-22: Modified for Orders/Create page
 */
 
 .history-box {
@@ -50,4 +51,69 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+ /* Orders/Create */
+
+.confirm-details-box {
+    background-color: #FFFFFF;
+    width: 80%;
+    height: 90%;
+    border-radius: 6px;
+    padding: 5% 10%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
+    margin: auto;
+}
+.order-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+}
+
+.order-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin: 1%;
+    padding: 1%;
+}
+
+.order-img {
+    width: 25%;
+}
+
+.order-item div, .order-item select {
+    width: 167px;
+}
+
+.order-item input {
+    margin: 1%;
+    width: 125px;
+}
+
+.order-item .confirm-btn {
+    font-size: 15px;
+    width: 120px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #7F6791;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.order-item .back-btn {
+    font-size: 15px;
+    width: 120px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: grey;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
 }

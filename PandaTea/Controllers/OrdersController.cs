@@ -11,6 +11,7 @@
  *          Samantha Dang, 2019-10-25: Sessions for items added to order (StoreQuantity, Create)
  *          Samantha Dang, 2019-10-31: Set the Order/Create values from Session Variables
  *          Ji Hong Ahn, 2019-11-18: Modified models for Index action
+ *          Samantha Dang, 2019-11-21: Updated Create method so View includes user friendly values
  */
 using System;
 using System.Linq;
@@ -114,8 +115,21 @@ namespace PandaTea.Controllers
                 TempData["LoginRequiredMessage"] = "Please log in to view place an order.";
                 return RedirectToAction("Login", "Users");
             }
-            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", HttpContext.Session.GetString("MenuId"));
-            ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreId");
+            var menuId = Decimal.Parse(HttpContext.Session.GetString("MenuId"));
+            var productId = Decimal.Parse(HttpContext.Session.GetString("ProductId"));
+            var unitPrice = Decimal.Parse(HttpContext.Session.GetString("UnitPrice"));
+            var size = HttpContext.Session.GetString("Size");
+            
+            ViewData["UnitPrice"] = unitPrice;
+            ViewData["Size"] = size;
+            ViewData["ProductId"] = productId;
+
+            var productInDb = _context.Product.Where(s => s.ProductId == productId).SingleOrDefault();
+            ViewData["ProductImagePath"] = productInDb.ImagePath.ToString();
+            ViewData["ProductName"] = productInDb.ProductName;
+
+            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
+            ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreName");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();
         }
@@ -130,7 +144,6 @@ namespace PandaTea.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderId,UserId,MenuId,StoreId,Quantity,DatePurchased")] Order order)
         {
-            //won't need these once I can populate into the Orders/Create form...
             order.UserId = Decimal.Parse(HttpContext.Session.GetString("UserId"));
             order.Quantity = int.Parse(HttpContext.Session.GetString("Quantity"));
             if (ModelState.IsValid)
