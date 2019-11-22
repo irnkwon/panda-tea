@@ -36,40 +36,63 @@
                 </div>
 
                 <div class="order-item">
-                    <div>Drink Name:</div>
-                    <select asp-items="ViewBag.ProductId"></select>
+                    <img src="@Url.Content(ViewBag.ProductImagePath)" class="order-img" alt="Bubble tea image" />
                 </div>
                 <div class="order-item">
-                    <div>Size:</div>
-                    <div>@ViewBag.Size</div>
+                    <div id="small-title">@ViewBag.ProductName</div>
                 </div>
                 <div class="order-item">
-                    <div>Unit Price:</div>
-                    <div>@ViewBag.UnitPrice</div>
+                    <div>Size: @ViewBag.Size</div>
+                </div>
+                <div class="order-item">
+                    <div>Unit Price: @ViewBag.UnitPrice</div>
                 </div>
                 <div class="order-item">
                     <div>Pick up at this Store:</div>
                     <select asp-for="StoreId" asp-items="ViewBag.StoreId"></select>
+                    <span asp-validation-for="StoreId" class="text-danger"></span>
                 </div>
                 <div class="order-item">
                     <div>Quantity:</div>
-                    <input asp-for="Quantity" value="@Context.Session.GetString("Quantity")" min="1" />
+                    <input asp-for="Quantity" value="@Context.Session.GetString("Quantity")" min="1" onchange="" id="order-qty" />
                     <span asp-validation-for="Quantity" class="text-danger"></span>
                 </div>
-                <div class="order-item">
-                    <div>Order Total:</div>
-                    <div class="modal-orderTotal">
+                <div class="modal-orderTotal">
                     @{
                         var orderTotal = ViewBag.UnitPrice * Convert.ToInt32(Context.Session.GetString("Quantity"));
                         <div>$@orderTotal</div>
                     }
-                    </div>
+                    <div class="modal-price"></div>
                 </div>
                 <div class="order-item">
                     <input type="submit" value="Send Order" class="confirm-btn" />
                     <input type="button" value="Back to Menu" onclick="location.href='@Url.Action("Index", "Menus")'" class="back-btn" />
                 </div>
             </form>
-            </div>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#order-qty").onchange(function () {
+                var quantity = $("#order-qty").val();
+                var totalPrice = 0;
+
+                if (selectedValue == "S") {
+                    totalPrice = 3.99 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+                if (selectedValue == "M") {
+                    totalPrice = 4.49 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+                if (selectedValue == "L") {
+                    totalPrice = 4.99 * quantity;
+                    $(".modal-price").text(totalPrice.toFixed(2));
+                }
+            });
+        });
+    </script>
+}

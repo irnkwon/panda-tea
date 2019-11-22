@@ -124,9 +124,10 @@ namespace PandaTea.Controllers
             ViewData["Size"] = size;
             ViewData["ProductId"] = productId;
 
-            var productContext = _context.Product.Include(s => s.Menu).Where(u => u.ProductId == productId);
+            var productInDb = _context.Product.Where(s => s.ProductId == productId).SingleOrDefault();
+            ViewData["ProductImagePath"] = productInDb.ImagePath.ToString();
+            ViewData["ProductName"] = productInDb.ProductName;
 
-            ViewData["ProductId"] = new SelectList(productContext, "ProductId", "ProductName", productId);
             ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreName");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");

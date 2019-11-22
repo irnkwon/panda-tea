@@ -47,22 +47,6 @@
     padding-right: 10px;
 }
 
-.details-box {
-    background-color: #FFFFFF;
-    width: 530px;
-    height: 200px;
-    border-radius: 6px;
-    padding: 30px 50px;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
-    margin: 20px 0;
-}
-
-.details-box order-form {
-    width: 100%;
-}
-
 .order-total {
     display: flex;
     flex-direction: row;
@@ -71,11 +55,22 @@
 
  /* Orders/Create */
 
+.confirm-details-box {
+    background-color: #FFFFFF;
+    width: 80%;
+    height: 90%;
+    border-radius: 6px;
+    padding: 5% 10%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
+    margin: auto;
+}
 .order-form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
 }
 
 .order-item {
@@ -83,18 +78,21 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-    justify-content: center;
-}
-
-.order-item div, .order-item select  {
+    /*justify-content: center;*/
     margin: 1%;
     padding: 1%;
-    width: 167px; 
+}
+
+.order-img {
+    width: 25%;
+}
+
+.order-item div, .order-item select {
+    width: 167px;
 }
 
 .order-item input {
     margin: 1%;
-    padding: 1%;
     width: 125px;
 }
 
@@ -118,16 +116,4 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
-}
-
-.confirm-details-box {
-    background-color: #FFFFFF;
-    width: 530px;
-    height: 350px;
-    border-radius: 6px;
-    padding: 30px 50px;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0 4px 9px 0 rgba(0,0,0,0.02);
-    margin: 20px 0;
 }
