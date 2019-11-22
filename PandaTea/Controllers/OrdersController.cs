@@ -126,7 +126,8 @@ namespace PandaTea.Controllers
 
             var productContext = _context.Product.Include(s => s.Menu).Where(u => u.ProductId == productId);
 
-            ViewData["MenuId"] = new SelectList(productContext, "ProductId", "ProductName", productId);
+            ViewData["ProductId"] = new SelectList(productContext, "ProductId", "ProductName", productId);
+            ViewData["MenuId"] = new SelectList(_context.Menu, "MenuId", "MenuId", menuId);
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "StoreName");
             ViewData["UserId"] = new SelectList(_context.User, "UserId", "UserId");
             return View();

@@ -29,16 +29,16 @@
                     <input asp-for="UserId" class="form-control" value="@Context.Session.GetString("UserId")" hidden />
                 </div>
                 <div class="order-item" hidden>
+                    <select asp-for="MenuId" asp-items="ViewBag.MenuId" hidden></select>
+                </div>
+                <div class="order-item" hidden>
                     <input asp-for="DatePurchased" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace(' ', 'T')" hidden />
                 </div>
 
                 <div class="order-item">
                     <div>Drink:</div>
-                    <select asp-for="MenuId" asp-items="ViewBag.MenuId"></select>
-                </div>
-                <div class="order-item">
-                    <div>ProductId:</div>
-                    <div>@ViewBag.ProductId</div>
+                    <select asp-items="ViewBag.ProductId"></select>
+
                 </div>
                 <div class="order-item">
                     <div>Size:</div>
