@@ -72,67 +72,67 @@ namespace PandaTea.Tests
             Assert.NotNull(result);
         }
 
-        //[Fact]
-        //public void Validate_ChecksSuccessfulLogin()
-        //{
-        //    User testUser = new User
-        //    {
-        //        Email = "jahn2488@conestogac.on.ca",
-        //        Password = "p@ssword"
-        //    };
+        [Fact]
+        public void Validate_ChecksSuccessfulLogin()
+        {
+            User testUser = new User
+            {
+                Email = "jahn2488@conestogac.on.ca",
+                Password = "p@ssword"
+            };
 
-        //    JsonResult jsonResult = _usersController.Validate(testUser);
-        //    string ser = JsonConvert.SerializeObject(jsonResult);
-        //    object dec = JsonConvert.DeserializeObject(ser);
-        //    JObject jsonObj = JObject.Parse(dec.ToString());
-        //    string result = jsonObj["Value"]["message"].ToString();
+            JsonResult jsonResult = _usersController.Validate(testUser);
+            string ser = JsonConvert.SerializeObject(jsonResult);
+            object dec = JsonConvert.DeserializeObject(ser);
+            JObject jsonObj = JObject.Parse(dec.ToString());
+            string result = jsonObj["Value"]["message"].ToString();
 
-        //    output.WriteLine("Expected: \"Logged In\"");
-        //    output.WriteLine("Actual: \"{0}\"", result);
-        //    output.WriteLine("JsonResult: {0}", ser);
+            output.WriteLine("Expected: \"Logged In\"");
+            output.WriteLine("Actual: \"{0}\"", result);
+            output.WriteLine("JsonResult: {0}", ser);
 
-        //    Assert.Equal("Logged In", result);
-        //}
+            Assert.Equal("Logged In", result);
+        }
 
-        //[Fact]
-        //public void Validate_ChecksInvalidPassword()
-        //{
-        //    User testUser = new User
-        //    {
-        //        Email = "Dnay8979@conestogac.on.ca",
-        //        Password = "FakePassword"
-        //    };
+        [Fact]
+        public void Validate_ChecksInvalidPassword()
+        {
+            User testUser = new User
+            {
+                Email = "Dnay8979@conestogac.on.ca",
+                Password = "FakePassword"
+            };
 
-        //    JsonResult jsonResult = _usersController.Validate(testUser);
-        //    string ser = JsonConvert.SerializeObject(jsonResult);
-        //    object dec = JsonConvert.DeserializeObject(ser);
-        //    JObject jsonObj = JObject.Parse(dec.ToString());
-        //    string result = jsonObj["Value"]["message"].ToString();
+            JsonResult jsonResult = _usersController.Validate(testUser);
+            string ser = JsonConvert.SerializeObject(jsonResult);
+            object dec = JsonConvert.DeserializeObject(ser);
+            JObject jsonObj = JObject.Parse(dec.ToString());
+            string result = jsonObj["Value"]["message"].ToString();
 
-        //    output.WriteLine("Expected: \"Invalid Password\"");
-        //    output.WriteLine("Actual: \"{0}\"", result);
+            output.WriteLine("Expected: \"Invalid Password\"");
+            output.WriteLine("Actual: \"{0}\"", result);
 
-        //    Assert.Equal("Invalid Password", result);
-        //}
+            Assert.Equal("Invalid Password", result);
+        }
 
 
-        //[Fact]
-        //public void Logout_ChecksSuccessfulLogout()
-        //{
-        //    // Have to be logged in first?
+        [Fact]
+        public void Logout_ChecksSuccessfulLogout()
+        {
+            // Have to be logged in first?
 
-        //    ActionResult jsonResult = _usersController.Logout();
-        //    string ser = JsonConvert.SerializeObject(jsonResult);
-        //    object dec = JsonConvert.DeserializeObject(ser);
-        //    JObject jsonObj = JObject.Parse(dec.ToString());
-        //    string result = jsonObj["Value"]["message"].ToString();
+            ActionResult jsonResult = _usersController.Logout();
+            string ser = JsonConvert.SerializeObject(jsonResult);
+            object dec = JsonConvert.DeserializeObject(ser);
+            JObject jsonObj = JObject.Parse(dec.ToString());
+            string result = jsonObj["Value"]["message"].ToString();
 
-        //    output.WriteLine("Expected: \"Invalid Email\"");
-        //    output.WriteLine("Actual: \"{0}\"", result);
-        //    output.WriteLine("JsonResult: {0}", ser);
+            output.WriteLine("Expected: \"Invalid Email\"");
+            output.WriteLine("Actual: \"{0}\"", result);
+            output.WriteLine("JsonResult: {0}", ser);
 
-        //    Assert.Equal("Logout Successful", result);
-        //}
+            Assert.Equal("Logout Successful", result);
+        }
     }
 }
 
