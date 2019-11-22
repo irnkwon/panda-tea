@@ -51,7 +51,7 @@
                 </div>
                 <div class="order-item">
                     <div>Quantity:</div>
-                    <input asp-for="Quantity" value="@Context.Session.GetString("Quantity")" min="1" onchange="" />
+                    <input asp-for="Quantity" value="@Context.Session.GetString("Quantity")" min="1" disabled />
                     <span asp-validation-for="Quantity" class="text-danger"></span>
                 </div>
                 <div class="order-item">
