@@ -1,7 +1,10 @@
+<img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/logo.png" width="35%">
+
 # panda-tea
 
 **panda-tea** is a web application of virtual bubble tea shop that enables users 
-to order bubble tea for pick up and to view their purchase history.
+to order bubble tea for pick up and to view their purchase history. The project is currently under development.
+For more information, please check out [issues](https://github.com/irnkwon/panda-tea/issues) and [wiki](https://github.com/irnkwon/panda-tea/wiki).
 
 ### Built With
 [ASP.NET Core](https://dotnet.microsoft.com), 
@@ -20,6 +23,14 @@ to order bubble tea for pick up and to view their purchase history.
 3. Run the project with Visual Studio or other preferred IDE, and explore the app using the following credentials: 
    * Email: H<span>kwon7327</span>@conestogac.on.ca
    * Password: p@ssword
+
+## 💕 Team
+<div style={{ display: flex, flex-direction: 'row' }}>
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/irene.png" width="15%">
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/samantha.png" width="15%">
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/dennis.png" width="15%">
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/jaden.png" width="15%">
+</div>
 
 ## 📘 License
 
