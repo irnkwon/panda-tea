@@ -10,7 +10,7 @@
 
 **panda-tea** is a web application of virtual bubble tea shop that enables users 
 to order bubble tea for pick up and to view their purchase history. The project is currently under development.
-For more information, please check out [issues](https://github.com/irnkwon/panda-tea/issues) and [wiki](https://github.com/irnkwon/panda-tea/wiki).
+For more information, please check out [issues](https://github.com/irnkwon/panda-tea/issues).
 
 ### Built With
 [ASP.NET Core](https://dotnet.microsoft.com), 
