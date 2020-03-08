@@ -1,4 +1,10 @@
 <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/logo.png" width="35%">
+<div style={{ display: flex, flex-direction: 'row' }}>
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/irene.png" width="15%">
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/samantha.png" width="15%">
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/dennis.png" width="15%">
+    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/jaden.png" width="15%">
+</div>
 
 # panda-tea
 
@@ -23,14 +29,6 @@ For more information, please check out [issues](https://github.com/irnkwon/panda
 3. Run the project with Visual Studio or other preferred IDE, and explore the app using the following credentials: 
    * Email: H<span>kwon7327</span>@conestogac.on.ca
    * Password: p@ssword
-
-## 💕 Team
-<div style={{ display: flex, flex-direction: 'row' }}>
-    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/irene.png" width="15%">
-    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/samantha.png" width="15%">
-    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/dennis.png" width="15%">
-    <img src="https://github.com/irnkwon/panda-tea/blob/master/PandaTea/wwwroot/images/jaden.png" width="15%">
-</div>
 
 ## 📘 License
 
