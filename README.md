@@ -26,7 +26,7 @@ For more information, please check out [issues](https://github.com/irnkwon/panda
 1. To clone the repository, type the following command on your Terminal or Command Prompt.  
 ``` git clone https://github.com/irnkwon/panda-tea.git ```
 2. Connect the project with pandateadb by running createDB_PandaTeaDB.sql file on your local server.
-3. Run the project with Visual Studio or other preferred IDE, and explore the app using the following credentials: 
+3. Run the project with Visual Studio or other preferred IDE and explore the app using the following credentials: 
    * Email: H<span>kwon7327</span>@conestogac.on.ca
    * Password: p@ssword
 
